@@ -1,10 +1,10 @@
 # Changelog
 
-Formato: [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
+Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## 1.0.0 — 2026-10-22
 
-Primera version publicada como release. El repositorio existe desde el 2026-10-06.
+First version published as a release. The repository has existed since 2026-10-06.
 
-- Sitio Jekyll con los productos de inteligencia: perfiles de actor, evaluaciones ACH y el metodo.
-- Texto bajo CC BY 4.0 desde el 2026-10-22.
+- Jekyll site with the intelligence products: actor profiles, ACH assessments and the method behind them.
+- Prose licensed CC BY 4.0 since 2026-10-22.
