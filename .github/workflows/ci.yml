@@ -1,0 +1,39 @@
+name: CI
+
+# El sitio no tenia ninguna comprobacion: un error de Jekyll o un enlace roto se veia en
+# produccion. Esto construye el sitio en cada push y falla si el build revienta o si las
+# paginas que el perfil enlaza no existen.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Construir el sitio
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Instalar Jekyll y el tema
+        run: gem install jekyll -v '~> 4.3' minima
+      - name: Construir
+        run: jekyll build --trace
+      - name: Las paginas que el perfil enlaza existen
+        run: |
+          for ruta in index.html method/index.html requirements/index.html engineering/index.html about/index.html; do
+            test -f "_site/$ruta" || { echo "::error::falta _site/$ruta"; exit 1; }
+          done
+      - name: Los productos publicados existen
+        run: |
+          test -f "_site/volt-typhoon-actor-profile/index.html"
+          test -f "_site/scattered-spider-actor-profile/index.html"
+          test -f "_site/ach-voltzite-volt-typhoon/index.html"
+          test -f "_site/from-source-to-a-defensible-judgement/index.html"

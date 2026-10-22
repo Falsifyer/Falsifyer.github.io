@@ -1,29 +1,45 @@
 # me0094.github.io
 
-Cyber threat intelligence from open sources: adversary profiles, structured assessments and the
-tradecraft behind them. Every claim carries a source and is graded on two independent axes —
-confidence and probability.
+Source of <https://me0094.github.io>: cyber threat intelligence products — adversary profiles,
+structured assessments, and the method and requirements behind them.
 
-Published with GitHub Pages (Jekyll).
+## What it is
 
-## Structure
+A Jekyll site published with GitHub Pages. One product per file in `_posts/`, each with front matter
+plus a product header (handling, version, review trigger) and a revision history.
 
-- `_posts/` — dated products (actor profiles and assessments). Jekyll front matter plus a product
-  header (handling, version, review trigger) and a revision history.
-- `requirements.md` — the priority intelligence requirements the site answers (PIR → EEI → product).
-- `method.md` — the tradecraft standard: grading, review and corrections.
-- `about.md`, `index.md`, `_config.yml` — pages and site configuration.
+## What it is not
 
-## Conventions
+- **Not a blog.** No commentary, no news roundups: each post is a product that answers a requirement.
+- **Not a mirror of vendor reporting.** Where vendors disagree, the post says so; where the evidence
+  stops, it states the gap.
+- **Not the place for the tools.** They live in their own repositories and are linked from
+  [`engineering.md`](engineering.md).
 
-- New products go in `_posts/` as `YYYY-MM-DD-slug.md` with Jekyll front matter.
-- Each product carries a **version**, a **date**, a **review trigger** and a **revision history**.
-- Grading is two-axis; the definition lives in `method.md`.
+## Install
 
-## Licencia
+Nothing to install to read it: it is a static site. To build or preview it locally:
 
-- **Texto y análisis** (posts, `about.md`, `method.md`, `requirements.md`, `engineering.md`):
-  [CC BY 4.0](LICENSE). Se puede citar, traducir y reutilizar **con atribución** y enlace a la
-  versión original.
-- **Tema del sitio**: el tema `minima` de Jekyll conserva su licencia MIT; no es contenido de este
-  repositorio.
+```console
+$ gem install jekyll minima
+$ jekyll serve
+```
+
+## Use
+
+- `_posts/YYYY-MM-DD-slug.md` — one product. The permalink is the title.
+- `about.md`, `method.md`, `requirements.md`, `engineering.md` — the pages in the header.
+- `_config.yml` — title, description, theme and the header navigation.
+
+## Method
+
+Every claim carries its source and is graded on two independent axes, confidence and probability, per
+claim rather than per section. `method.md` holds the standard (grading, review, corrections);
+`requirements.md` holds the priority intelligence requirements the products answer, decomposed
+PIR → EEI → product.
+
+## Licence
+
+- **Text and analysis** (posts, `about.md`, `method.md`, `requirements.md`, `engineering.md`):
+  [CC BY 4.0](LICENSE). Quote, translate and reuse **with attribution** and a link to the original.
+- **Site theme**: the `minima` theme keeps its own MIT licence; it is not content of this repository.
