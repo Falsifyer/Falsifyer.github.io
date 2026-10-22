@@ -23,7 +23,7 @@ jobs:
         with:
           ruby-version: "3.3"
       - name: Instalar Jekyll y el tema
-        run: gem install jekyll -v '~> 4.3' minima
+        run: gem install 'jekyll:~>4.3' minima
       - name: Construir
         run: jekyll build --trace
       - name: Las paginas que el perfil enlaza existen
