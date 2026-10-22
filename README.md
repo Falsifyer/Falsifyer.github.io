@@ -19,3 +19,11 @@ Published with GitHub Pages (Jekyll).
 - New products go in `_posts/` as `YYYY-MM-DD-slug.md` with Jekyll front matter.
 - Each product carries a **version**, a **date**, a **review trigger** and a **revision history**.
 - Grading is two-axis; the definition lives in `method.md`.
+
+## Licencia
+
+- **Texto y análisis** (posts, `about.md`, `method.md`, `requirements.md`, `engineering.md`):
+  [CC BY 4.0](LICENSE). Se puede citar, traducir y reutilizar **con atribución** y enlace a la
+  versión original.
+- **Tema del sitio**: el tema `minima` de Jekyll conserva su licencia MIT; no es contenido de este
+  repositorio.
