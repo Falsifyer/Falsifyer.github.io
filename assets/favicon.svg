@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Falsifyer">
+  <rect width="32" height="32" rx="6" fill="#12141a"/>
+  <rect x="8" y="7" width="6" height="18" fill="#b23c17"/>
+  <rect x="17" y="7" width="6" height="9" fill="#f7f4ee"/>
+  <rect x="17" y="19" width="6" height="6" fill="#b23c17"/>
+</svg>

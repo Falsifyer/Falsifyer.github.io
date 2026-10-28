@@ -4,6 +4,7 @@ title: "Scattered Spider: an actor profile built from open sources"
 date: 2026-10-06
 categories: threat-intelligence
 summary: "An actor profile assembled from open reporting, with the vendor divergences left visible instead of flattened into a single confident story."
+kind: "Actor profile"
 ---
 
 | | |

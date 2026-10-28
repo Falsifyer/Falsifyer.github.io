@@ -94,7 +94,9 @@ def render(text: str, content: str) -> str:
         return text
     head, rest = text.split(BEGIN, 1)
     _, tail = rest.split(END, 1)
-    return f"{head}{BEGIN}\n{content}\n{END}{tail}"
+    # kramdown stops parsing GFM tables after a standalone HTML comment, so the
+    # opening marker rides at the end of the previous paragraph instead.
+    return f"{head.rstrip()} {BEGIN}\n\n{content}\n\n{END}{tail}"
 
 
 def main() -> int:

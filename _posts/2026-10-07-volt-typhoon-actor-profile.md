@@ -4,6 +4,7 @@ title: "Volt Typhoon: an actor profile built from open sources"
 date: 2026-10-07
 categories: threat-intelligence
 summary: "A living-off-the-land intrusion tracked from open sources, graded claim by claim, with the attribution kept to what the evidence carries and no further."
+kind: "Actor profile"
 ---
 
 | | |

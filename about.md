@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+Falsifyer is the working name of one analyst, Martín Eliseo.
+
 Cyber threat intelligence: analysis, and the engineering that makes it hold up.
 
 I profile threat actors and analyse adversary tradecraft from open sources, and I care

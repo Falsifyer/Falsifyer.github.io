@@ -7,17 +7,22 @@
   <meta name="theme-color" content="#12141a" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)">
 
-  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.url == "/" %}{{ site.title }} — {{ site.tagline }}{% elsif page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description | strip_newlines }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
 
   <meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:title" content="{% if page.url == "/" %}{{ site.title }} — {{ site.tagline }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{{ page.description | default: site.description | strip_newlines }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:image" content="{{ '/assets/og.png' | absolute_url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
@@ -29,7 +34,7 @@
     <div class="wrap topbar-inner">
       <a class="wordmark" href="{{ '/' | relative_url }}">
         <span class="mark" aria-hidden="true">▚</span>
-        <span class="wordmark-text">{{ site.title | default: site.github.owner_name }}</span>
+        <span class="wordmark-text">{{ site.title }}</span>
         <span class="wordmark-tag">CTI</span>
       </a>
       <nav class="nav" aria-label="Sections">
@@ -52,12 +57,14 @@
     <div class="wrap footer-inner">
       <div class="footer-brand">
         <span class="mark" aria-hidden="true">▚</span>
-        <p class="footer-line">{{ site.title }} · open-source cyber threat intelligence.</p>
+        <p class="footer-line">{{ site.title }} · the working name of {{ site.author }}.</p>
       </div>
       <div class="footer-meta">
-        <p>Judgements carry their confidence and probability, and every correction is logged.</p>
+        <p>Every judgement here carries its confidence and probability, and states what would overturn it.</p>
         <p class="mono">
-          <a href="https://github.com/Falsifyer/Falsifyer.github.io/blob/main/CHANGELOG.md">Changelog</a>
+          <a href="{{ '/falsification/' | relative_url }}">Falsification</a>
+          <span aria-hidden="true">·</span>
+          <a href="{{ '/method/' | relative_url }}#versioning-and-corrections">Corrections</a>
           <span aria-hidden="true">·</span>
           <a href="{{ '/feed.xml' | relative_url }}">Feed</a>
           <span aria-hidden="true">·</span>

@@ -4,6 +4,7 @@ title: "The broker is the actor you can see: SYLVANITE and the alias problem at 
 date: 2026-10-28
 categories: threat-intelligence
 summary: "Dragos observed SYLVANITE handing footholds to VOLTZITE. What a defender should merge, and what must stay separate, when three vendors track one access layer as three different things."
+kind: "Assessment"
 ---
 
 | | |

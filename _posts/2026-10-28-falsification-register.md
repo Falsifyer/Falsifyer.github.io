@@ -3,6 +3,7 @@ layout: post
 title: "Every way to prove us wrong: the falsification register"
 date: 2026-10-28
 categories: threat-intelligence
+kind: "Register"
 ---
 
 | | |
@@ -27,9 +28,8 @@ categories: threat-intelligence
 
 For every claim a reader would act on — an estimative judgement, a `High`, or anything observed or
 assessed — the table gives the condition that would change it, the artefact that would satisfy the
-condition, its type, and when the window closes.
+condition, its type, and when the window closes. <!-- falsification:begin -->
 
-<!-- falsification:begin -->
 **19 conditions** across 4 products. 4 carry an expiry; the nearest is **2027-01-31**. None has expired.
 
 | Product | Claim | What would change it | Artefact | Type | Expires |
@@ -53,6 +53,7 @@ condition, its type, and when the window closes.
 | [Volt Typhoon](/volt-typhoon-actor-profile/) | Dragos's VOLTZITE is the same actor as Volt Typhoon | A vendor or government statement that asserts or denies identity | A joint advisory or an ATT&CK group change | documentary | — |
 | [Volt Typhoon](/volt-typhoon-actor-profile/) | Initial access increasingly brokered by SYLVANITE and handed to Volt Typhoon/VOLTZITE | A statement on SYLVANITE tasking, or a second consumer cluster | Vendor research or a joint advisory | documentary | — |
 | [Volt Typhoon](/volt-typhoon-actor-profile/) | Operated by the PLA Cyberspace Force | A government statement naming the unit | An indictment, an advisory, or an official attribution | documentary | — |
+
 <!-- falsification:end -->
 
 ## Why a condition beats a label
