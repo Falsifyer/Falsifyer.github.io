@@ -42,7 +42,8 @@ jobs:
           }
 
       - name: A contradiction between products must fail
-        run: |          mkdir -p /tmp/contradiction
+        run: |
+          mkdir -p /tmp/contradiction
           header='| | |\n|---|---|\n| **Product** | Fixture |\n| **Handling** | TLP:CLEAR |\n| **Version** | 1.0 (2026-10-01) |\n| **Review trigger** | none |\n| **Next review** | 2099-01-01 |\n\n## Assessment ledger\n\n| Assessment | Confidence | Probability | Basis |\n|---|---|---|---|\n'
           footer='\n\n## Revision history\n\n| Version | Date | Change |\n|---|---|---|\n| 1.0 | 2026-10-01 | First release. |\n'
           printf "$header"'| Dragos VOLTZITE is the same actor as Volt Typhoon | Low | unlikely | [1] |'"$footer" > /tmp/contradiction/a.md
