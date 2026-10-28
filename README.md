@@ -45,7 +45,7 @@ links to is missing. `sitegate.yml` runs the site's own gate against the product
 To run the gate locally, put the suite beside the site:
 
 ```console
-$ git clone --depth 1 https://github.com/ME0094/cti-suite _suite
+$ git clone --depth 1 --branch cti-method-v0.2.0 https://github.com/ME0094/cti-suite _suite
 $ python3 scripts/sitegate.py
 ```
 

@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ME0094/cti-suite
+          ref: cti-method-v0.2.0
           path: _suite
 
       - uses: actions/setup-python@v5
