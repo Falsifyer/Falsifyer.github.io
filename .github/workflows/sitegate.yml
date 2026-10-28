@@ -27,7 +27,7 @@ jobs:
       - name: Tables match their registries
         run: python scripts/render_claims.py --check
 
-      - name: Falsification page matches the registries
+      - name: Register matches the registries
         run: python scripts/render_falsification.py --check
 
       - name: Gate the products

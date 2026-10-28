@@ -13,6 +13,5 @@ header_pages:
   - engineering.md
   - requirements.md
   - method.md
-  - falsification.md
 plugins:
   - jekyll-feed

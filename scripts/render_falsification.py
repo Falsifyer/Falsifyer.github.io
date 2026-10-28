@@ -104,7 +104,7 @@ def main() -> int:
     args = parser.parse_args()
 
     root = Path(__file__).resolve().parent.parent
-    page = args.page or root / "falsification.md"
+    page = args.page or root / "_posts" / "2026-10-28-falsification-register.md"
     if not page.is_file():
         print(f"falsification: cannot check: no page at {page}", file=sys.stderr)
         return 2

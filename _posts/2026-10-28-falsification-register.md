@@ -1,15 +1,33 @@
 ---
-layout: page
-title: Falsification
-permalink: /falsification/
-kicker: Register
-description: "Every claim a reader would act on, the condition that would change it, the artefact that would satisfy it, and when it expires."
+layout: post
+title: "Every way to prove us wrong: the falsification register"
+date: 2026-10-28
+categories: threat-intelligence
 ---
 
-This is the register behind the products. It is not a statement of confidence: it is the list
-of things we would have to see to stop believing what we published. It is generated from the
-same claim registries that produce each product's assessment ledger, so it cannot drift from
-them.
+| | |
+|---|---|
+| **Product** | Register (method) |
+| **Handling** | TLP:CLEAR — open sources only |
+| **Version** | 1.0 (2026-10-28) |
+| **Review trigger** | A trigger in this register fires, or a product's registry changes |
+| **Next review** | 2027-04-30 |
+| **Author** | Martín Eliseo |
+
+## Bottom line
+
+1. **Nineteen conditions across four products**, four of them with a date. None has expired.
+2. A condition is more useful than a confidence label: a label tells you how much to trust a
+   judgement today, a condition tells you what would make it wrong tomorrow — and someone who does
+   not trust the author can check it.
+3. The register is **generated** from the same claim registries that produce each product's ledger.
+   If it drifts from them, the build fails.
+
+## How to read this
+
+For every claim a reader would act on — an estimative judgement, a `High`, or anything observed or
+assessed — the table gives the condition that would change it, the artefact that would satisfy the
+condition, its type, and when the window closes.
 
 <!-- falsification:begin -->
 **19 conditions** across 4 products. 4 carry an expiry; the nearest is **2027-01-31**. None has expired.
@@ -39,31 +57,65 @@ them.
 
 ## Why a condition beats a label
 
-A confidence label tells you how much to trust a judgement today. A falsification condition
-tells you what would make it wrong tomorrow, and it can be checked by someone who does not
-trust the author. The second is harder to write and more useful: it turns a claim into a test.
+A confidence grade is a claim about the evidence, and it is only as good as the reader's trust in the
+author. A falsification condition is different: it names something that has not happened yet, and
+anyone can watch for it. That converts a judgement into a test.
 
-## Why some of these expire
+It also costs the author something. Writing "a vendor or government statement that asserts or denies
+identity" is a commitment to change the product if that statement appears. Writing "confidence:
+moderate" commits to nothing.
 
-A documentary condition — a vendor asserting identity, a government naming a unit, ATT&CK
-changing an alias — does not decay. If the statement is never made, the question stays open,
-and an arbitrary expiry would only manufacture urgency.
+## Why some conditions expire
 
-A technical or behavioural condition does decay. A successor botnet, a new sector wave, a
-resumption after arrests: each has a window in which it would mean something, and after it the
-absence of the event is itself information. So those triggers carry a date, and an expired one
+A documentary condition — a vendor asserting identity, a government naming a unit, ATT&CK changing an
+alias — does not decay. If the statement is never made, the question stays open, and an arbitrary
+expiry would manufacture urgency rather than measure it.
+
+A technical or behavioural condition does decay. A successor SOHO botnet, a new sector wave, a
+resumption after arrests: each has a window in which it would mean something, and after that window
+the absence of the event is itself information. So those triggers carry a date, and an expired one
 fails the build. The review is not a calendar ritual; it is the moment the evidence went stale.
 
 ## What happens when one fires
 
-A trigger firing is not a correction by itself. It opens a review: the claim is re-graded
-against the new evidence, and if the judgement changes, the product gets a new version and a
-row in its revision history — never a silent edit. The gate enforces the shape; the analyst
-decides the judgement.
+A trigger firing is not a correction by itself. It opens a review: the claim is re-graded against the
+new evidence, and if the judgement changes, the product gets a new version and a row in its revision
+history — never a silent edit. The gate enforces the shape; the analyst decides the judgement.
+
+The four products already carry that history: the Volt Typhoon profile is on 2.4, the ACH on 2.0, and
+both changed a published grade rather than quietly editing it.
 
 ## The limit
 
 A condition is worth what the watching is worth. Nothing in a static repository notices that a
-government published an advisory at 2am, which is why one source — the ATT&CK collection — is
-checked weekly by a job that opens an issue when it moves. The rest depend on a person
-reading, and that is stated rather than implied.
+government published an advisory at 2am, which is why one source — the ATT&CK collection — is checked
+weekly by a job that opens an issue when it moves. The rest depend on a person reading, and that is
+stated rather than implied.
+
+## What this does not prove
+
+- A register is not a prediction market. The conditions are tests, not probabilities, and the number
+  of them says nothing about how likely any judgement is to survive.
+- It inherits the products' gaps. If a claim is wrong for a reason nobody thought to list, the
+  register does not help — and the list of conditions is only as good as the imagination behind it.
+- The expiry dates are review dates, not forecasts. They say when the evidence stops being
+  informative, not when the world will change.
+
+## Sources
+
+The register has no sources of its own: every condition belongs to a product, and the product carries
+the evidence.
+
+- [Volt Typhoon profile](/volt-typhoon-actor-profile/) · [Scattered Spider](/scattered-spider-actor-profile/) · [ACH](/ach-voltzite-volt-typhoon/) · [SYLVANITE](/sylvanite-access-layer/)
+- [`_data/claims`](https://github.com/Falsifyer/Falsifyer.github.io/tree/main/_data/claims) — the registries this page is generated from
+- [Method](/method/) — the standard the conditions are held to
+
+---
+
+*All analysis is open-source. Views are my own.*
+
+## Revision history
+
+| Version | Date | Change |
+|---|---|---|
+| 1.0 | 2026-10-28 | First release. |
