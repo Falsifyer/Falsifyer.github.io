@@ -357,13 +357,35 @@ body.is-post .post-body > table:first-of-type > thead { display: none; }
   padding: .55rem .7rem; vertical-align: top;
   border-bottom: 1px solid var(--rule);
 }
-.post-body td:first-child {
+.post-body > table:first-of-type td:first-child {
   font-family: var(--mono); font-size: .76rem; letter-spacing: .06em;
   text-transform: uppercase; color: var(--muted); white-space: nowrap;
   width: 1%;
 }
 .post-body tbody tr:hover { background: var(--paper-alt); }
 .post-body td:last-child, .post-body th:last-child { padding-right: .2rem; }
+
+/* Wide tables (the falsification register) break out of the reading column:
+   six columns of prose do not fit in 68 characters. */
+.post-body > table:has(> thead > tr > th:nth-child(5)) {
+  max-width: none;
+  width: min(1140px, calc(100vw - 2.6rem));
+  margin-left: 50%;
+  transform: translateX(-50%);
+  font-size: .84rem;
+}
+.post-body > table:has(> thead > tr > th:nth-child(5)) th,
+.post-body > table:has(> thead > tr > th:nth-child(5)) td { padding: .55rem .7rem; }
+.post-body > table:has(> thead > tr > th:nth-child(5)) td:first-child {
+  width: 16%; white-space: normal; text-transform: none; letter-spacing: 0;
+  font-family: var(--sans); font-size: .84rem; color: var(--text);
+}
+.post-body > table:has(> thead > tr > th:nth-child(5)) td:nth-child(2) { width: 23%; }
+.post-body > table:has(> thead > tr > th:nth-child(5)) td:nth-child(5) { width: 10%; }
+.post-body > table:has(> thead > tr > th:nth-child(5)) td:nth-child(6) {
+  width: 8%; white-space: nowrap; font-family: var(--mono);
+  font-size: .74rem; color: var(--muted);
+}
 
 /* ---- code ---------------------------------------------------------------- */
 
@@ -424,6 +446,7 @@ body.is-post .post-body > table:first-of-type > thead { display: none; }
   .nav { gap: .9rem; }
   .section-head, .footer-inner { grid-template-columns: 1fr; }
   .post-body table { display: block; overflow-x: auto; }
+  .post-body > table:has(> thead > tr > th:nth-child(5)) { width: 100%; margin-left: 0; transform: none; }
   .post-body table td, .post-body table th { white-space: normal; }
   .post-nav-next { text-align: left; }
 }
