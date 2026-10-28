@@ -4,7 +4,7 @@ permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% for p in site.pages %}{% if p.sitemap != false and p.url != "/sitemap.xml" and p.url != "/robots.txt" and p.url != "/feed.xml" %}
+{% for p in site.pages %}{% if p.title and p.sitemap != false %}
   <url><loc>{{ p.url | absolute_url }}</loc></url>
 {% endif %}{% endfor %}
 {% for post in site.posts %}
