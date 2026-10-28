@@ -4,8 +4,6 @@ title: Requirements
 permalink: /requirements/
 ---
 
-# Requirements
-
 What this site is asked to answer, and why. Direction is part of tradecraft: an assessment that
 answers a question nobody asked is not intelligence.
 

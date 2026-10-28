@@ -8,9 +8,10 @@ categories: threat-intelligence
 | | |
 |---|---|
 | **Product** | Assessment (structured technique: ACH) |
-| **Handling** | TLP:WHITE — open sources only |
-| **Version** | 1.0 (2026-10-09) |
+| **Handling** | TLP:CLEAR — open sources only |
+| **Version** | 1.2 (2026-10-28) |
 | **Review trigger** | A vendor or government statement that asserts or denies identity; a new joint advisory |
+| **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
 
 ## Bottom line
@@ -62,7 +63,7 @@ prediction about *where* the overlap comes from.
 | E4 | MITRE records the tracking names as Associated Groups — explicitly weaker than "same actor" | [3] |
 | E5 | Same targeting: critical infrastructure and OT (communications, energy, transport, water) | [1][7] |
 | E6 | Same tradecraft: living-off-the-land, valid accounts, SOHO proxying | [1][3] |
-| E7 | SYLVANITE establishes footholds on edge devices and hands them to Volt Typhoon / VOLTZITE | [3][7] |
+| E7 | SYLVANITE establishes footholds on edge devices and hands them to Volt Typhoon / VOLTZITE | [7][12] |
 | E8 | Stage 2 ICS Cyber Kill Chain activity attributed to VOLTZITE | [7] |
 | E9 | No public statement by any vendor asserting identity; the language used is overlap | [3][7][10] |
 | E10 | Government advisories list Voltzite as an alias, implying sameness at the campaign level | [1] |
@@ -142,3 +143,5 @@ full source list and the unreferenced entries.
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-09 | First release. |
+| 1.1 | 2026-10-28 | Handling corrected from the retired TLP 1.0 label to `TLP:CLEAR`, now checked in CI. The Volt Typhoon profile's identity row was aligned to this product's judgement. The matrix, the hypotheses and the judgement are unchanged. |
+| 1.2 | 2026-10-28 | Citation corrected: the SYLVANITE handoff (E7) is a Dragos observation, not an ATT&CK record. The matrix, the hypotheses and the judgement are unchanged. |

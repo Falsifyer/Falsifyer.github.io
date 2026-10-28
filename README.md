@@ -29,7 +29,29 @@ $ jekyll serve
 
 - `_posts/YYYY-MM-DD-slug.md` — one product. The permalink is the title.
 - `about.md`, `method.md`, `requirements.md`, `engineering.md` — the pages in the header.
+- `corrections.md` — the log of every change to a judgement.
 - `_config.yml` — title, description, theme and the header navigation.
+
+## Checks
+
+Two workflows run on every push. `ci.yml` builds the site with Jekyll and fails if a page the header
+links to is missing. `sitegate.yml` runs the site's own gate against the products:
+
+- **handling** — the TLP rules, delegated to [`sharegate`](https://github.com/ME0094/cti-suite);
+- **versioning** — a version in the product header must exist in its revision history;
+- **freshness** — a product past its next review date fails;
+- **vocabulary** — confidence and probability come from the declared lexicons;
+- **cross-product consistency** — the same claim, graded differently in two products, fails.
+
+To run the gate locally, put the suite beside the site:
+
+```console
+$ git clone --depth 1 https://github.com/ME0094/cti-suite _suite
+$ python3 scripts/sitegate.py
+```
+
+A contradiction between products is a build failure, not a reader's discovery. Corrections are logged
+in [`corrections.md`](corrections.md).
 
 ## Method
 

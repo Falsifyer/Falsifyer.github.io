@@ -8,9 +8,10 @@ categories: threat-intelligence
 | | |
 |---|---|
 | **Product** | Method note |
-| **Handling** | TLP:WHITE — open sources only |
-| **Version** | 1.0 (2026-10-09) |
+| **Handling** | TLP:CLEAR — open sources only |
+| **Version** | 1.1 (2026-10-28) |
 | **Review trigger** | A change to the method, or a case that breaks it |
+| **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
 
 ## Bottom line
@@ -72,11 +73,24 @@ evidence, its confidence, and a statement of what would change it. The
 
 ## The numbers
 
-- The reconciliation engine: 87 tests; STIX output validated against the reference library
-  in CI.
-- The handling gate: 21 tests, 94% coverage, judged against TLP 2.0 and STIX 2.1.
-- The hunting planner and the assessment ledger: 12 tests each.
+The suite is public and MIT-licensed, and it runs in CI:
+[github.com/ME0094/cti-suite](https://github.com/ME0094/cti-suite). I don't copy test counts into
+prose — a number in a blog post goes stale, and the whole point of the tooling is that the claim can
+be checked at source. What the CI checks:
+
+- the reconciliation engine against an adjudicated corpus with a committed coverage baseline, with
+  STIX output validated against the reference library;
+- the handling gate against FIRST TLP 2.0 and STIX 2.1, where the ground truth is a schema and not
+  an opinion;
+- the hunting planner and the assessment ledger, whose *refusals* are the behaviour under test.
 
 ---
 
 *A judgement is finished only when it changes a decision — and when someone can see why.*
+
+## Revision history
+
+| Version | Date | Change |
+|---|---|---|
+| 1.0 | 2026-10-09 | First release. |
+| 1.1 | 2026-10-28 | Handling corrected from the retired TLP 1.0 label to `TLP:CLEAR`; test counts replaced by the CI they come from. No assessed fact changed. |

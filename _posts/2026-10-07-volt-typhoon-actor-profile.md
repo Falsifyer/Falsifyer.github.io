@@ -8,9 +8,10 @@ categories: threat-intelligence
 | | |
 |---|---|
 | **Product** | Actor profile |
-| **Handling** | TLP:WHITE — open sources only |
-| **Version** | 2.0 (2026-10-09) |
+| **Handling** | TLP:CLEAR — open sources only |
+| **Version** | 2.2 (2026-10-28) |
 | **Review trigger** | MITRE ATT&CK or government update, a confirmed disruptive effect, or new edge-device exploitation |
+| **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
 
 *Every claim below carries a source and is graded on two independent axes. Where vendors disagree, I
@@ -69,7 +70,9 @@ aliases in its advisory [1].
 **Caveat — low confidence.** Not every tracking name is asserted to be the same actor. Dragos's
 VOLTZITE is described as sharing "extensive technical overlaps" with Volt Typhoon rather than being
 declared identical [7], and it is Dragos's analyst designation for the OT-facing activity. Read the
-OT reporting as an **overlapping cluster**, not a single verified entity [3][7].
+OT reporting as an **overlapping cluster**, not a single verified entity [3][7]. The same caution
+applies one layer down: the access cluster that feeds this actor is itself a set of names, not a
+name (§3).
 
 ## 2. Assessment ledger
 
@@ -82,10 +85,10 @@ OT reporting as an **overlapping cluster**, not a single verified entity [3][7].
 | Uses compromised SOHO routers (KV Botnet and successors) to proxy C2 and obscure origin | High | n/a | [1][6][8] |
 | Exploited the Versa Director zero-day CVE-2024-39717 with the VersaMem web shell | High | n/a | [3][9] |
 | Deployed the SockDetour backdoor in at least one intrusion | Moderate | n/a | [10] |
-| Initial access increasingly brokered by SYLVANITE and handed to Volt Typhoon/VOLTZITE | Moderate | likely | [3][7] |
+| Initial access increasingly brokered by SYLVANITE and handed to Volt Typhoon/VOLTZITE | Moderate | likely | [7][12] |
 | Reached Stage 2 of the ICS Cyber Kill Chain in 2025 (engineering workstations, cellular gateways) | Moderate | n/a | [7] |
 | Operated by the PLA Cyberspace Force | Low | n/a | [11] |
-| Dragos's VOLTZITE is the same actor as Volt Typhoon | Low | roughly even chance | [3][7] |
+| Dragos's VOLTZITE is the same actor as Volt Typhoon | Low | unlikely | [3][7] · [ACH](/ach-voltzite-volt-typhoon/) |
 
 ## 3. Tradecraft
 
@@ -105,9 +108,28 @@ successor botnets such as the JDY botnet after the takedown [7][8].
 edge infrastructure — VPN gateways, firewalls and SD-WAN management — rather than user inboxes. In
 mid-2024 it exploited a zero-day in Versa Director, CVE-2024-39717, tracked by MITRE as campaign
 C0039, dropping a custom web shell (VersaMem) whose purpose was credential capture from managed
-service providers and ISPs, to pivot into their downstream customers [3][9]. MITRE also records a
-separate initial-access cluster, SYLVANITE, that exploits edge devices and hands established
-footholds to Volt Typhoon for follow-on operations [3][7].
+service providers and ISPs, to pivot into their downstream customers [3][9].
+
+**The access layer is tracked separately, and by one vendor.** **SYLVANITE** is Dragos's designation
+for an initial-access group active since 2023 that weaponises edge-device proofs of concept, harvests
+credentials and hands established footholds to Stage 2 actors. Dragos states that it has directly
+observed SYLVANITE transferring access to VOLTZITE, with the handoff possible within days [12]. Two
+cautions belong here.
+
+First, **MITRE does not record SYLVANITE as a group.** ATT&CK v20 — the version current when this
+was checked — carries 193 enterprise groups and none is SYLVANITE, and G1017 does not mention it. What
+MITRE records is *campaign* C0029, Cutting Edge — Ivanti Connect Secure zero-day exploitation from
+December 2023 to February 2024, attributed variously to UNC5221/UTA0178 and UNC5325 [13]. A campaign
+and a group are different objects, and citing one for the other is how a broker acquires a name it was
+never given.
+
+Second, **SYLVANITE is not a single name either.** Dragos lists it as overlapping UNC5221, UNC5174,
+UNC5291, UNC3236, HOUKEN, Red Dev 61, CL-STA-0048 and UTA0178, and assesses those as *multiple
+entities under the same overarching direction* [12]. Note what that list contains: UNC3236 is, in
+ATT&CK, an alias of Volt Typhoon [3]. Read flatly — the convention most platforms use — UNC3236 is
+Volt Typhoon, and UNC3236 overlaps SYLVANITE, so SYLVANITE *is* Volt Typhoon, and the broker
+disappears from the graph. No vendor asserts that. Overlap is not identity, and shared tooling is not
+a shared operator: the honest unit here is an **access ecosystem**, not a broker.
 
 **Persistence and credential theft.** Persistence leans on web shells and valid accounts, with at
 least one documented use of **SockDetour**, a custom backdoor designed to survive the removal of a
@@ -138,7 +160,7 @@ VOLTZITE at **Stage 2 of the ICS Cyber Kill Chain**: manipulating engineering wo
 to extract configuration files and alarm data, and specifically investigating what operational
 conditions would trigger process shutdowns — reconnaissance of *how to disrupt*, not disruption
 itself [7]. Initial access is increasingly brokered: SYLVANITE weaponises edge-device vulnerabilities
-and hands footholds over for the deeper OT intrusion [3][7]. No publicly confirmed disruptive effect
+and hands footholds over for the deeper OT intrusion [7][12]. No publicly confirmed disruptive effect
 has been observed. What is **corroborated** here is only that the actor has the access and is
 collecting the data; the disruptive end state remains an assessed intent [1][7].
 
@@ -191,6 +213,9 @@ What to look for, not a validated ruleset (consistent with the rule-provenance p
 
 - Whether VOLTZITE (Dragos) and Volt Typhoon (Microsoft and the U.S. government) are one actor or an
   overlapping ecosystem; the naming is explicitly "technical overlap", not identity [3][7].
+- Whether the eight names Dragos lists as overlapping SYLVANITE are one entity. Dragos assesses
+  multiple entities under one overarching direction, which is not the same as a single broker, and no
+  public source resolves it [12].
 - Unit-level attribution — the claim that the group is run by the PLA Cyberspace Force is public
   reporting, not a government confirmation, and is treated as low confidence [11].
 - Whether the pre-positioning has translated into any confirmed disruptive or destructive effect.
@@ -237,6 +262,12 @@ What to look for, not a validated ruleset (consistent with the rule-provenance p
     Insidious Taurus (Volt Typhoon)** (Feb 2024). https://unit42.paloaltonetworks.com/volt-typhoon-threat-brief/
 11. Public reporting on unit-level attribution of the group (secondary source; treated as low
     confidence).
+12. Dragos — **SYLVANITE** threat group page (accessed 28 Oct 2026). Records the group since 2023,
+    the observed handoff to VOLTZITE, and the overlap list.
+    https://www.dragos.com/threat/sylvanite/
+13. MITRE ATT&CK — **Campaign C0029: Cutting Edge** (Ivanti Connect Secure exploitation,
+    December 2023 – February 2024; last modified 31 Jul 2026).
+    https://attack.mitre.org/campaigns/C0029
 
 ---
 
@@ -248,3 +279,5 @@ What to look for, not a validated ruleset (consistent with the rule-provenance p
 |---|---|---|
 | 1.0 | 2026-10-07 | First release. |
 | 2.0 | 2026-10-09 | Split confidence and probability into two axes; added the product header, the outlook and this history. No assessed fact changed. |
+| 2.1 | 2026-10-28 | The VOLTZITE identity row now carries the ACH's judgement (`unlikely`, ~20–45%) instead of `roughly even chance`, and points to the product that tests it. Handling corrected from the retired TLP 1.0 label to `TLP:CLEAR`, now checked in CI. No other assessed fact changed. |
+| 2.2 | 2026-10-28 | Corrected the SYLVANITE attribution: MITRE records campaign C0029, not a group, and G1017 does not mention SYLVANITE. Added the overlap list — eight names, assessed by Dragos as multiple entities under one direction — including UNC3236, an ATT&CK alias of Volt Typhoon, and the reason overlap must not be read as identity. Ledger basis for the broker row moved from [3][7] to [7][12]. |

@@ -4,8 +4,6 @@ title: Method
 permalink: /method/
 ---
 
-# Method and corrections
-
 How the analysis on this site is produced, graded and corrected. It is stated so a reader can judge
 the products against a declared standard rather than trust the writing.
 
@@ -20,10 +18,13 @@ not be verified.
 Every claim carries a **source** and is graded on two independent axes, per claim, not per section:
 
 - **Confidence** — how good the sourcing and the reasoning are: **High** (corroborated by two or more
-  independent authoritative sources), **Moderate** (one credible source, or corroboration with gaps),
+  independent sources, where *independent* means separately collected — two reports that trace back to
+  one origin are one voice, not two), **Moderate** (one credible source, or corroboration with gaps),
   **Low** (single-source, self-claimed, or heavily inferential).
 - **Probability** — how likely the assessed outcome is, where the claim is estimative: *nearly
-  certain*, *very likely*, *likely*, *roughly even chance*, *unlikely*, *very unlikely*.
+  certain*, *very likely*, *likely*, *roughly even chance*, *unlikely*, *very unlikely*. The terms and
+  their bands follow the ODNI analytic standards (ICD 203 / ICD 208), so a stated range means the same
+  thing to every reader.
 
 The two are separate. A claim can be *very likely* at *low confidence* (a single source) or *roughly
 even* at *high confidence* (strong data, genuine uncertainty). Conflating them is the most common
@@ -53,10 +54,18 @@ rather than implied.
 - Each product carries a **version**, a **date** and a **review trigger** in its header.
 - Changes are recorded in the product's **Revision history**; no assessed fact is changed silently.
 - A correction that changes a judgement is published as a **new version**, not as an edit in place.
+- Every correction is also listed in the public [corrections log](/corrections/), with the version
+  it produced and whether an assessed fact changed.
+- A product carries a **next review** date, and `scripts/sitegate.py` fails the build once it has
+  passed: an assessment that has outlived its review is not a product any more.
 
 ## Handling
 
-Products are **TLP:WHITE** unless marked otherwise — open sources, shareable without restriction.
+Products are **TLP:CLEAR** unless marked otherwise — open sources, shareable without
+restriction. That is the TLP 2.0 name; the retired TLP 1.0 label *TLP:WHITE* is not used here.
+The marking is checked rather than asserted: every product's handling row is run through
+`sharegate` in CI, and the build fails on a missing marking, conflicting markings or a
+retired one.
 
 ## Rule provenance
 
@@ -65,6 +74,7 @@ published without a stated provenance and a way to check that it still holds.
 
 ## Related
 
+- [Corrections](/corrections/)
 - [Requirements](/requirements/)
 - [About](/about/)
 

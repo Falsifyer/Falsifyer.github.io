@@ -1,0 +1,58 @@
+name: sitegate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  sitegate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out the gate (cti-suite)
+        uses: actions/checkout@v4
+        with:
+          repository: ME0094/cti-suite
+          path: _suite
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Gate the products
+        run: python scripts/sitegate.py --suite _suite
+
+      - name: A retired marking must fail
+        run: |
+          mkdir -p /tmp/negative
+          printf '| | |\n|---|---|\n| **Product** | Regression fixture |\n| **Handling** | TLP:WHITE |\n| **Version** | 0.1 (2026-01-01) |\n| **Review trigger** | Never published |\n| **Next review** | 2099-01-01 |\n' > /tmp/negative/product.md
+          if out=$(python scripts/sitegate.py --suite _suite --posts /tmp/negative); then
+            echo "::error::the gate accepted a retired TLP 1.0 marking"
+            exit 1
+          fi
+          echo "$out" | grep -q tlp-deprecated || {
+            echo "::error::the gate failed for the wrong reason"
+            echo "$out"
+            exit 1
+          }
+
+      - name: A contradiction between products must fail
+        run: |
+          mkdir -p /tmp/contradiction
+          header='| | |\n|---|---|\n| **Product** | Fixture |\n| **Handling** | TLP:CLEAR |\n| **Version** | 1.0 (2026-10-01) |\n| **Review trigger** | none |\n| **Next review** | 2099-01-01 |\n\n## Assessment ledger\n\n| Assessment | Confidence | Probability | Basis |\n|---|---|---|---|\n'
+          footer='\n\n## Revision history\n\n| Version | Date | Change |\n|---|---|---|\n| 1.0 | 2026-10-01 | First release. |\n'
+          printf "$header"'| Dragos VOLTZITE is the same actor as Volt Typhoon | Low | unlikely | [1] |'"$footer" > /tmp/contradiction/a.md
+          printf "$header"'| Dragos VOLTZITE is the same actor as Volt Typhoon | Low | roughly even chance | [1] |'"$footer" > /tmp/contradiction/b.md
+          if out=$(python scripts/sitegate.py --suite _suite --posts /tmp/contradiction); then
+            echo "::error::the gate accepted two contradictory grades for one claim"
+            exit 1
+          fi
+          echo "$out" | grep -q contradicts || {
+            echo "::error::the gate failed for the wrong reason"
+            echo "$out"
+            exit 1
+          }

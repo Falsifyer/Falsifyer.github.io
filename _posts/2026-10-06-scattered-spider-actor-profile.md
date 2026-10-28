@@ -8,9 +8,10 @@ categories: threat-intelligence
 | | |
 |---|---|
 | **Product** | Actor profile |
-| **Handling** | TLP:WHITE — open sources only |
-| **Version** | 2.0 (2026-10-09) |
+| **Handling** | TLP:CLEAR — open sources only |
+| **Version** | 2.1 (2026-10-28) |
 | **Review trigger** | New government advisory, MITRE ATT&CK update, vendor re-assessment, or law-enforcement action |
+| **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
 
 *Every claim below carries a source and is graded on two independent axes. Where vendors disagree, I
@@ -207,3 +208,4 @@ The confidence above is a snapshot; these events would move it:
 |---|---|---|
 | 1.0 | 2026-10-06 | First release. |
 | 2.0 | 2026-10-09 | Split confidence and probability into two axes; added the product header, the outlook and this history. No assessed fact changed. |
+| 2.1 | 2026-10-28 | Handling corrected from the retired TLP 1.0 label to `TLP:CLEAR` (TLP 2.0), now checked in CI. No assessed fact changed. |
