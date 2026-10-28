@@ -1,0 +1,42 @@
+name: source drift
+
+# A review trigger fires when the world changes; nothing in a static repository notices.
+# This checks the ATT&CK collection weekly and opens an issue when it moves. It never
+# fails a build: a source that changed is a reason to re-review, not a broken commit.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compare the collection with the pinned version
+        id: drift
+        run: python scripts/source_drift.py
+
+      - name: Open an issue if it moved
+        if: steps.drift.outputs.drift == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DETAIL: ${{ steps.drift.outputs.detail }}
+        run: |
+          title="ATT&CK source drift: re-review the products"
+          existing=$(gh issue list --state open --search "$title in:title" --json number --jq 'length')
+          if [ "$existing" = "0" ]; then
+            gh issue create --title "$title" --body "$DETAIL"
+          else
+            echo "an open issue already tracks this"
+          fi

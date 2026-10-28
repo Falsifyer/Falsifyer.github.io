@@ -106,6 +106,14 @@
         "S3",
         "S7",
         "S12"
+      ],
+      "triggers": [
+        {
+          "id": "RT-01",
+          "type": "documentary",
+          "condition": "A statement that asserts or denies identity",
+          "artifact": "Joint advisory or ATT&CK change"
+        }
       ]
     },
     {
@@ -119,6 +127,14 @@
         "S3",
         "S7",
         "S12"
+      ],
+      "triggers": [
+        {
+          "id": "RT-02",
+          "type": "documentary",
+          "condition": "A vendor states the clusters are separate, or one",
+          "artifact": "Vendor report"
+        }
       ]
     },
     {
@@ -130,6 +146,14 @@
       "sources": [
         "S1",
         "S10"
+      ],
+      "triggers": [
+        {
+          "id": "RT-03",
+          "type": "documentary",
+          "condition": "Shared infrastructure or code linking the designations",
+          "artifact": "Vendor research"
+        }
       ]
     }
   ],
@@ -147,6 +171,14 @@
           "id": "S12",
           "direct": true,
           "reliability": "B"
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-04",
+          "type": "documentary",
+          "condition": "SYLVANITE serving a second consumer, or the handoff being denied",
+          "artifact": "Vendor report"
         }
       ]
     }

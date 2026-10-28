@@ -72,6 +72,13 @@ The table in a product is a **view** of its registry. `scripts/render_claims.py`
 it between `<!-- claims:begin -->` and `<!-- claims:end -->`, and CI runs it with `--check`:
 editing the registry without regenerating the table fails the build.
 
+A claim a reader would act on also carries a **review trigger**: `documentary`, `technical` or
+`behavioural`, the artefact that would satisfy it, and for the last two an expiry date. A
+trigger that has expired fails the build. `scripts/source_drift.py` checks the ATT&CK
+collection against `_data/sources.json` weekly and opens an issue when it moves — it does
+not fail a build, because a source that changed is a reason to re-review, not a broken
+commit.
+
 `scripts/selftest.py` proves the three rejections: a grade above the ceiling, a derived
 source counted twice, and a derivation cycle.
 

@@ -3,11 +3,40 @@
   "product": "2026-10-28-sylvanite-access-layer",
   "mode": "claim",
   "sources": [
-    {"id": "S1", "publisher": "Dragos", "ref": "1", "derived_from": []},
-    {"id": "S2", "publisher": "Mandiant", "ref": "2", "derived_from": []},
-    {"id": "S3", "publisher": "MITRE ATT&CK", "ref": "3", "derived_from": ["S2"]},
-    {"id": "S4", "publisher": "MITRE ATT&CK", "ref": "4", "derived_from": ["S5"]},
-    {"id": "S5", "publisher": "CISA", "ref": "5", "derived_from": []}
+    {
+      "id": "S1",
+      "publisher": "Dragos",
+      "ref": "1",
+      "derived_from": []
+    },
+    {
+      "id": "S2",
+      "publisher": "Mandiant",
+      "ref": "2",
+      "derived_from": []
+    },
+    {
+      "id": "S3",
+      "publisher": "MITRE ATT&CK",
+      "ref": "3",
+      "derived_from": [
+        "S2"
+      ]
+    },
+    {
+      "id": "S4",
+      "publisher": "MITRE ATT&CK",
+      "ref": "4",
+      "derived_from": [
+        "S5"
+      ]
+    },
+    {
+      "id": "S5",
+      "publisher": "CISA",
+      "ref": "5",
+      "derived_from": []
+    }
   ],
   "claims": [
     {
@@ -18,7 +47,12 @@
       "type": "factual",
       "confidence": "moderate",
       "probability": null,
-      "sources": [{"id": "S1", "direct": true}]
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SYL-02",
@@ -28,7 +62,20 @@
       "type": "factual",
       "confidence": "moderate",
       "probability": null,
-      "sources": [{"id": "S1", "direct": true}]
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-01",
+          "type": "documentary",
+          "condition": "A second consumer cluster, or a denial that the handoff happened",
+          "artifact": "Vendor research or an incident report"
+        }
+      ]
     },
     {
       "id": "SYL-03",
@@ -38,7 +85,20 @@
       "type": "estimative",
       "confidence": "moderate",
       "probability": "likely",
-      "sources": [{"id": "S1", "direct": true}]
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-02",
+          "type": "documentary",
+          "condition": "A vendor states the overlapping clusters are one entity, or several named ones",
+          "artifact": "Vendor report"
+        }
+      ]
     },
     {
       "id": "SYL-04",
@@ -48,7 +108,20 @@
       "type": "estimative",
       "confidence": "moderate",
       "probability": "likely",
-      "sources": [{"id": "S2", "direct": true}]
+      "sources": [
+        {
+          "id": "S2",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-03",
+          "type": "documentary",
+          "condition": "A government attribution of UNC5174",
+          "artifact": "Government advisory"
+        }
+      ]
     },
     {
       "id": "SYL-05",
@@ -58,7 +131,16 @@
       "type": "factual",
       "confidence": "moderate",
       "probability": null,
-      "sources": [{"id": "S3", "direct": true}, {"id": "S4", "direct": true}]
+      "sources": [
+        {
+          "id": "S3",
+          "direct": true
+        },
+        {
+          "id": "S4",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SYL-06",
@@ -68,7 +150,24 @@
       "type": "factual",
       "confidence": "high",
       "probability": null,
-      "sources": [{"id": "S1", "direct": true}, {"id": "S4", "direct": true}]
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        },
+        {
+          "id": "S4",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-04",
+          "type": "documentary",
+          "condition": "ATT&CK changes the alias list for G1017",
+          "artifact": "ATT&CK group update"
+        }
+      ]
     },
     {
       "id": "SYL-07",
@@ -78,7 +177,24 @@
       "type": "estimative",
       "confidence": "low",
       "probability": "unlikely",
-      "sources": [{"id": "S1", "direct": false}, {"id": "S2", "direct": false}]
+      "sources": [
+        {
+          "id": "S1",
+          "direct": false
+        },
+        {
+          "id": "S2",
+          "direct": false
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-05",
+          "type": "documentary",
+          "condition": "Published shared infrastructure or code between SYLVANITE and UNC5174",
+          "artifact": "Vendor infrastructure research"
+        }
+      ]
     }
   ]
 }

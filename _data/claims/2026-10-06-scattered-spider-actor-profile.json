@@ -136,6 +136,15 @@
           "id": "S3",
           "direct": true
         }
+      ],
+      "triggers": [
+        {
+          "id": "RT-01",
+          "type": "technical",
+          "condition": "New hypervisor tooling, or a patch that closes the access path",
+          "artifact": "Vendor research or an exploited CVE",
+          "expires": "2027-04-30"
+        }
       ]
     },
     {
@@ -174,6 +183,15 @@
           "id": "S4",
           "direct": true
         }
+      ],
+      "triggers": [
+        {
+          "id": "RT-02",
+          "type": "behavioural",
+          "condition": "A new sector wave, or a pause longer than two quarters",
+          "artifact": "Incident reporting across the named sectors",
+          "expires": "2027-04-30"
+        }
       ]
     },
     {
@@ -188,6 +206,15 @@
         {
           "id": "S5",
           "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-03",
+          "type": "behavioural",
+          "condition": "A resumption at the pre-arrest tempo, or a conviction",
+          "artifact": "Law-enforcement statement or incident reporting",
+          "expires": "2027-01-31"
         }
       ]
     },
@@ -212,6 +239,14 @@
           "id": "S8",
           "direct": true
         }
+      ],
+      "triggers": [
+        {
+          "id": "RT-04",
+          "type": "documentary",
+          "condition": "A statement from the actors or a vendor separating the brands",
+          "artifact": "Vendor report or actor communication"
+        }
       ]
     },
     {
@@ -230,6 +265,14 @@
         {
           "id": "S7",
           "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-05",
+          "type": "documentary",
+          "condition": "Independent confirmation of the record count",
+          "artifact": "Victim, regulator or court statement"
         }
       ]
     }

@@ -30,6 +30,10 @@ The two are separate. A claim can be *very likely* at *low confidence* (a single
 even* at *high confidence* (strong data, genuine uncertainty). Conflating them is the most common
 tradecraft error; keeping them apart is the point.
 
+The ledger table in each product is **generated** from its claim registry (`_data/claims/`), not
+written by hand: `scripts/render_claims.py` renders it and CI fails if the table is out of date. What
+a reader sees is what the ceiling computed.
+
 ## Tradecraft standards
 
 | Standard | Requirement here |
@@ -56,6 +60,10 @@ rather than implied.
 - A correction that changes a judgement is published as a **new version**, not as an edit in place.
 - A product carries a **next review** date, and `scripts/sitegate.py` fails the build once it has
   passed: an assessment that has outlived its review is not a product any more.
+- Every claim a reader would act on carries at least one **review trigger**: a documentary, technical
+  or behavioural condition, the artefact that would satisfy it, and — for technical and behavioural
+  triggers — an expiry date. An expired trigger fails the build. A weekly job checks the ATT&CK
+  collection against the pinned version and opens an issue when it moves.
 
 ## Handling
 

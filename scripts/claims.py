@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import inspect
 import json
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -40,6 +41,47 @@ PROBABILITY = {
     "unlikely",
     "very_unlikely",
 }
+TRIGGER_TYPES = {"documentary", "technical", "behavioural"}
+
+
+def load_bearing(item: dict[str, Any]) -> bool:
+    """True when a reader would act on this claim, so it must carry a review trigger."""
+    return (
+        item.get("type") == "estimative"
+        or item.get("confidence") == "high"
+        or item.get("class") in {"observed", "assessed"}
+    )
+
+
+def check_triggers(
+    item: dict[str, Any], today: date, label: str
+) -> list[str]:
+    """Findings for the review triggers attached to one claim or judgement."""
+    blocking: list[str] = []
+    triggers = item.get("triggers") or []
+    if load_bearing(item) and not triggers:
+        blocking.append(f"{label}: no review trigger on a claim a reader would act on")
+    for trigger in triggers:
+        tid = str(trigger.get("id") or label)
+        kind = trigger.get("type")
+        if kind not in TRIGGER_TYPES:
+            blocking.append(f"{tid}: unknown trigger type '{kind}'")
+        if not str(trigger.get("condition") or "").strip():
+            blocking.append(f"{tid}: no condition")
+        if not str(trigger.get("artifact") or "").strip():
+            blocking.append(f"{tid}: no artifact that would satisfy it")
+        expires = trigger.get("expires")
+        if kind in {"technical", "behavioural"} and not expires:
+            blocking.append(f"{tid}: a {kind} trigger needs an expiry date")
+        if expires:
+            try:
+                due = date.fromisoformat(str(expires))
+            except ValueError:
+                blocking.append(f"{tid}: expiry '{expires}' is not an ISO date")
+                continue
+            if due < today:
+                blocking.append(f"{tid}: expired on {due.isoformat()}: re-review the claim")
+    return blocking
 
 
 def suite_supports_claim_mode() -> bool:
@@ -116,8 +158,11 @@ def _claim_evidence(claim: dict[str, Any], sources: dict[str, dict[str, Any]]) -
     return items
 
 
-def check(document: dict[str, Any], slug: str) -> tuple[list[str], list[str], dict[str, tuple[str, str, str]]]:
+def check(
+    document: dict[str, Any], slug: str, today: date | None = None
+) -> tuple[list[str], list[str], dict[str, tuple[str, str, str]]]:
     """Return (blocking, advisory, claims-by-key) for one registry."""
+    today = today or date.today()
     blocking: list[str] = []
     advisory: list[str] = []
     claims: dict[str, tuple[str, str, str]] = {}
@@ -131,12 +176,12 @@ def check(document: dict[str, Any], slug: str) -> tuple[list[str], list[str], di
     blocking += source_findings
 
     if document.get("hypotheses"):
-        found, notes, keys = _ach(document, sources)
+        found, notes, keys = _ach(document, sources, today)
         blocking += found
         advisory += notes
         claims.update(keys)
     if document.get("claims"):
-        found, notes, keys = _claims(document, sources)
+        found, notes, keys = _claims(document, sources, today)
         blocking += found
         advisory += notes
         claims.update(keys)
@@ -147,7 +192,7 @@ def check(document: dict[str, Any], slug: str) -> tuple[list[str], list[str], di
 
 
 def _ach(
-    document: dict[str, Any], sources: dict[str, dict[str, Any]]
+    document: dict[str, Any], sources: dict[str, dict[str, Any]], today: date
 ) -> tuple[list[str], list[str], dict[str, tuple[str, str, str]]]:
     blocking: list[str] = []
     advisory: list[str] = []
@@ -203,6 +248,7 @@ def _ach(
             continue
         if judge.get("probability") is not None and judge.get("probability") not in PROBABILITY:
             blocking.append(f"{hypothesis}: unknown probability '{judge.get('probability')}'")
+        blocking += check_triggers(judge, today, hypothesis)
         for finding in check_declared(
             judge.get("confidence"), evidence, list(sources.values()), favoured=hypothesis, mode="ach"
         ):
@@ -222,7 +268,7 @@ def _ach(
 
 
 def _claims(
-    document: dict[str, Any], sources: dict[str, dict[str, Any]]
+    document: dict[str, Any], sources: dict[str, dict[str, Any]], today: date
 ) -> tuple[list[str], list[str], dict[str, tuple[str, str, str]]]:
     blocking: list[str] = []
     advisory: list[str] = []
@@ -246,6 +292,7 @@ def _claims(
             blocking.append(f"{cid}: unknown confidence '{claim.get('confidence')}'")
         if claim.get("probability") is not None and claim.get("probability") not in PROBABILITY:
             blocking.append(f"{cid}: unknown probability '{claim.get('probability')}'")
+        blocking += check_triggers(claim, today, cid)
 
         refs = claim.get("sources") or []
         if not refs:

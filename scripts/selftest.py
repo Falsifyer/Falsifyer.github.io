@@ -56,7 +56,51 @@ def registry(sources: list[dict], confidence: str = "high") -> dict:
     }
 
 
+def _claim_document(claim: dict) -> dict:
+    return {
+        "schema_version": "1.0",
+        "product": "2026-01-01-demo",
+        "sources": [{"id": "S1", "publisher": "CISA"}],
+        "claims": [claim],
+    }
+
+
+ESTIMATIVE = {
+    "id": "C2",
+    "key": "demo.two",
+    "claim": "An estimative claim a reader would act on",
+    "class": "assessed",
+    "type": "estimative",
+    "confidence": "low",
+    "probability": "likely",
+    "sources": [{"id": "S1", "direct": True}],
+}
+
+
 SCENARIOS = [
+    (
+        "a load-bearing claim with no trigger",
+        _claim_document(dict(ESTIMATIVE)),
+        "no review trigger",
+    ),
+    (
+        "an expired technical trigger",
+        _claim_document(
+            dict(
+                ESTIMATIVE,
+                triggers=[
+                    {
+                        "id": "RT-01",
+                        "type": "technical",
+                        "condition": "a change in the artefact",
+                        "artifact": "vendor telemetry",
+                        "expires": "2020-01-01",
+                    }
+                ],
+            )
+        ),
+        "expired on",
+    ),
     (
         "grade above the ceiling",
         registry([{"id": "S1", "publisher": "CISA"}]),

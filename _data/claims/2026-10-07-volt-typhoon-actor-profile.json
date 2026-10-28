@@ -112,6 +112,14 @@
           "id": "S3",
           "direct": true
         }
+      ],
+      "triggers": [
+        {
+          "id": "RT-01",
+          "type": "documentary",
+          "condition": "A publicly confirmed disruptive or destructive effect attributed to the actor",
+          "artifact": "A government advisory or a vendor incident report"
+        }
       ]
     },
     {
@@ -153,6 +161,15 @@
         {
           "id": "S8",
           "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-02",
+          "type": "technical",
+          "condition": "A successor SOHO botnet, or a takedown that survives a reboot",
+          "artifact": "DOJ/FBI announcement or vendor botnet telemetry",
+          "expires": "2027-04-30"
         }
       ]
     },
@@ -207,6 +224,14 @@
           "id": "S12",
           "direct": true
         }
+      ],
+      "triggers": [
+        {
+          "id": "RT-03",
+          "type": "documentary",
+          "condition": "A statement on SYLVANITE tasking, or a second consumer cluster",
+          "artifact": "Vendor research or a joint advisory"
+        }
       ]
     },
     {
@@ -237,6 +262,14 @@
           "id": "S11",
           "direct": true
         }
+      ],
+      "triggers": [
+        {
+          "id": "RT-05",
+          "type": "documentary",
+          "condition": "A government statement naming the unit",
+          "artifact": "An indictment, an advisory, or an official attribution"
+        }
       ]
     },
     {
@@ -257,7 +290,15 @@
           "direct": false
         }
       ],
-      "note": "[ACH](/ach-voltzite-volt-typhoon/)"
+      "note": "[ACH](/ach-voltzite-volt-typhoon/)",
+      "triggers": [
+        {
+          "id": "RT-04",
+          "type": "documentary",
+          "condition": "A vendor or government statement that asserts or denies identity",
+          "artifact": "A joint advisory or an ATT&CK group change"
+        }
+      ]
     }
   ]
 }

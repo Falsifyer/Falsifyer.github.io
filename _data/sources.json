@@ -1,0 +1,8 @@
+{
+  "attack": {
+    "collection": "Enterprise ATT&CK",
+    "version": "20.0",
+    "modified": "2026-10-13T17:53:10.145Z",
+    "pinned_on": "2026-10-28"
+  }
+}
