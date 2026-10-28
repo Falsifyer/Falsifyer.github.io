@@ -63,6 +63,11 @@ The grade is not taken on trust. `sitegate` calls
 and refuses a declared confidence above what the evidence supports. Two reports from one
 publisher, or a source derived from another present, count as one voice.
 
+A file may instead be an **ACH** (`hypotheses`, typed `evidence` and `judgements`): the
+ceiling is then per hypothesis, computed in `mode="ach"` from diagnostic evidence and
+independent sources. Both shapes can share one file — the ACH product uses one for its
+identity question and one claim block for the mechanism it observed.
+
 `scripts/selftest.py` proves the three rejections: a grade above the ceiling, a derived
 source counted twice, and a derivation cycle.
 

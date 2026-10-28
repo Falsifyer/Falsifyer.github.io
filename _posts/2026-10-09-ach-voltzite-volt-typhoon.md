@@ -1,147 +1,161 @@
 ---
 layout: post
-title: "Is VOLTZITE the same actor as Volt Typhoon? An Analysis of Competing Hypotheses"
+title: "Is VOLTZITE the same actor as Volt Typhoon? Two questions, not three hypotheses"
 date: 2026-10-09
 categories: threat-intelligence
 ---
 
 | | |
 |---|---|
-| **Product** | Assessment (structured technique: ACH) |
+| **Product** | Assessment (structured technique: ACH, two questions) |
 | **Handling** | TLP:CLEAR — open sources only |
-| **Version** | 1.3 (2026-10-28) |
-| **Review trigger** | A vendor or government statement that asserts or denies identity; a new joint advisory |
+| **Version** | 2.0 (2026-10-28) |
+| **Review trigger** | A vendor or government statement that explicitly asserts or denies identity; published infrastructure or code reuse; detail on SYLVANITE tasking |
 | **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
 
+*Every claim below carries a source and is graded on two independent axes. The grades are computed
+from a registry (`_data/claims/`), not typed into the table.*
+
 ## Bottom line
 
-We assess with **moderate confidence** that "VOLTZITE" (Dragos) and "Volt Typhoon" (Microsoft and the
-U.S. government) are best treated as an **overlapping ecosystem, not a verified single actor**. The
-probability that they are literally the same organisational unit is **unlikely** (~20–45%). The
-overlap is consistent with a **brokered-access mechanism** — a separate cluster establishing footholds
-and passing them on — at **low confidence**.
+1. **The identity question is undecided, and saying so is the finding.** “Same unit” and “distinct
+   but related” both sit at **roughly even**, at **low confidence**. What the open evidence supports
+   is that *some* relationship exists rather than none — “unrelated” is **very unlikely**.
+2. **The mechanism is better evidenced than the identity.** A separate cluster establishing access
+   and handing it to VOLTZITE is **likely**, at **moderate confidence**: that is a direct observation,
+   not an inference from shared tradecraft.
+3. **This version changes the identity judgement.** v1.3 said “unlikely (20–45%)”. That conclusion
+   rested on counting one observation three times; counted once, the estimate returns to the band it
+   started from.
 
-The discriminating evidence is not the shared tradecraft (which is common and non-diagnostic) but the
-vendors' own language: Dragos's "extensive technical overlaps", MITRE's weaker *Associated Groups*
-recording, and the documented SYLVANITE access broker.
+## What changed from v1.3, and why
 
-## The question
-
-This assessment answers a standing requirement: *"Where vendor designations diverge, how much
-confidence does the evidence support for treating them as the same actor?"* (see
-[Requirements](/requirements/)). It matters because a naming judgement changes decisions — an incident
-responder, a hunting team or a procurement choice should not treat two designations as one actor
-without a stated confidence.
-
-## Why a structured technique
-
-Unstructured comparison drifts toward the most recent or most authoritative-sounding source. **ACH
-(Heuer)** forces the alternatives to be written down and tests the evidence against all of them at
-once. It favours the hypothesis with the **least inconsistent** evidence, not the one with the most
-supporting data — which is the trap when every hypothesis shares the same visible TTPs.
-
-## Hypotheses
-
-- **H1 — Same actor.** VOLTZITE and Volt Typhoon are one organisational entity under different vendor
-  names.
-- **H2 — Distinct but overlapping.** Separate teams or units that share tooling, infrastructure,
-  targeting or tasking, tracked separately by different vendors.
-- **H3 — Brokered / shared access.** The overlap is produced by an access broker or shared operational
-  support that hands footholds to more than one consumer cluster, without a single actor.
-
-H3 is a mechanism that can coexist with H2; it is tested on its own because it makes a different
-prediction about *where* the overlap comes from.
-
-## Evidence
-
-| # | Evidence | Source |
+| v1.3 | v2.0 | Why |
 |---|---|---|
-| E1 | Dragos describes VOLTZITE as sharing "extensive technical overlaps" with Volt Typhoon rather than being declared identical | [7] |
-| E2 | Dragos's VOLTZITE is its analyst designation for the OT-facing activity, not an identity claim | [7] |
-| E3 | CISA lists Voltzite among the aliases in its Volt Typhoon advisory | [1] |
-| E4 | MITRE records the tracking names as Associated Groups — explicitly weaker than "same actor" | [3] |
-| E5 | Same targeting: critical infrastructure and OT (communications, energy, transport, water) | [1][7] |
-| E6 | Same tradecraft: living-off-the-land, valid accounts, SOHO proxying | [1][3] |
-| E7 | SYLVANITE establishes footholds on edge devices and hands them to Volt Typhoon / VOLTZITE | [7][12] |
-| E8 | Stage 2 ICS Cyber Kill Chain activity attributed to VOLTZITE | [7] |
-| E9 | No public statement by any vendor asserting identity; the language used is overlap | [3][7][10] |
-| E10 | Government advisories list Voltzite as an alias, implying sameness at the campaign level | [1] |
+| One matrix: H1 same, H2 related, H3 brokered | Two matrices: **identity** and **mechanism** | H3 was compatible with H2, so the matrix could never refute it. A hypothesis that cannot lose is not being tested. |
+| E1, E4 and E9 counted as three inconsistencies against H1 | One item (A-i), with its independence stated | All three say the same thing: no vendor asserts identity. Three rows for one fact inflate the case. |
+| H2 defined broadly enough to absorb anything | A2 has a refutation condition | A hypothesis that explains every observation wins by construction. |
+| H1 `unlikely` (20–45%) | A1 `roughly even` (45–55%) | The triple count was what pushed it below the band. Grouped, it returns to the prior. |
+| H2 graded `moderate confidence` | A2 graded `low` | Nothing in the public evidence is diagnostic for identity: no infrastructure, no code, no operator artefact. Under the site's ceiling, no diagnostic item means no more than low. |
 
-## Consistency matrix
+## Question A — are they one organisational unit?
 
-`C` = consistent · `I` = inconsistent · `0` = neutral or ambiguous.
+- **A1 — Same unit.** VOLTZITE and Volt Typhoon are one entity under two vendor names.
+- **A2 — Distinct, related.** Separate teams or units that share tooling, infrastructure, targeting or
+  tasking. *Refuted if* a vendor or government explicitly asserts identity, or published
+  infrastructure or code establishes a single operator.
+- **A3 — Distinct, unrelated.** The overlap is what any ICS-focused intrusion set looks like from
+  outside. *Refuted by* the same evidence that would confirm A1, or by a shared artefact.
 
-| Evidence | H1 (same) | H2 (overlap) | H3 (brokered) |
+### Evidence
+
+| # | Evidence | Bears on | Independence | Diagnostic weight |
+|---|---|---|---|---|
+| A-i | No vendor asserts identity: Dragos says “technical overlaps”, MITRE records Associated Groups, CISA lists an alias [3][7][12] | Naming convention | One observation across three publishers; two of them draw on vendor reporting | **Weak**: evidence about how names are assigned |
+| A-ii | CISA lists Voltzite among Volt Typhoon’s aliases [1] | Equivalence at campaign level | Government, but an alias list is not an identity finding | **Moderate** |
+| A-iii | Same sectors, same living-off-the-land tradecraft, same SOHO proxying [1][10] | Targeting and capability | Several, independent | **None**: consistent with A1, A2 and A3 |
+| A-iv | No public shared infrastructure, no shared code, no operator artefact | Identity | — | **Absence of evidence**, not evidence of difference |
+
+### Matrix
+
+`C` consistent · `I` inconsistent · `0` neutral
+
+| Evidence | A1 same | A2 related | A3 unrelated |
 |---|---|---|---|
-| E1 | I | C | C |
-| E2 | 0 | C | 0 |
-| E3 | C | 0 | 0 |
-| E4 | I | C | 0 |
-| E5 | C | C | C |
-| E6 | C | C | C |
-| E7 | I | C | C |
-| E8 | 0 | C | C |
-| E9 | I | C | C |
-| E10 | C | 0 | 0 |
+| A-i naming language | 0 | C | C |
+| A-ii CISA alias list | C | 0 | 0 |
+| A-iii shared tradecraft | C | C | C |
+| A-iv no linkage published | 0 | C | C |
 
-## What the matrix shows
+### Judgement A
 
-- **H1 carries four inconsistencies** (E1, E4, E7, E9) and is the least supported. ACH favours the
-  hypothesis with the least inconsistent evidence, not the one with the most supporters.
-- **H2 has no inconsistencies** and explains every observation, including the vendors' own careful
-  language.
-- **H3 has no inconsistencies** and is the most parsimonious explanation for E7 (a broker that hands
-  footholds onward) and for part of E5–E6.
-- The **discriminating** evidence is E1, E4, E7 and E9 — all linguistic or structural. Shared
-  tradecraft (E5, E6) is **non-diagnostic**: consistent with every hypothesis, which is exactly why
-  actor identification should not rest on TTP overlap alone.
+Only one item discriminates, and it points both ways: the government lists the names together, the
+vendors decline to. That is not enough to separate A1 from A2, and it is not enough to exclude A3 on
+open sources either.
 
-## Judgement
+### Assessment ledger
 
-1. Best treated as **separate but overlapping** (H2) — **moderate confidence**.
-2. That they are the **same organisational unit** (H1) — **unlikely** (~20–45%).
-3. That the overlap is at least partly **brokered** (H3) — **roughly even chance**, **low confidence**.
+| Assessment | Confidence | Probability | Basis |
+|---|---|---|---|
+| Dragos's VOLTZITE is the same actor as Volt Typhoon | Low | roughly even chance | [1][3][7][12] |
+| The clusters are distinct but related | Low | roughly even chance | [1][3][7][12] |
+| The clusters are unrelated | Low | very unlikely | [1][10] |
+
+Both leading hypotheses are `low` because **nothing diagnostic exists in public**: the ceiling is set
+by the evidence, and no amount of vendor language raises it. v1.3 graded “distinct but related” at
+moderate confidence; that grade was not supported, and the registry refused it.
+
+## Question B — is the overlap produced by brokered access?
+
+- **B1 — Brokered.** A separate cluster establishes footholds and hands them to VOLTZITE.
+- **B2 — Direct.** VOLTZITE does its own initial access; the overlap is capability, not supply.
+- **B3 — Shared tradecraft, no broker.** Clusters exchange tooling or buy the same commodity access
+  without a standing handoff.
+
+### Evidence
+
+| # | Evidence | B1 | B2 | B3 |
+|---|---|---|---|---|
+| B-i | Dragos observed SYLVANITE weaponising edge-device vulnerabilities and handing established footholds to VOLTZITE, during incident response at U.S. electric and water utilities [12] | C | I | 0 |
+| B-ii | SYLVANITE is tracked as a separate group with its own overlaps — UNC5221, UNC5174, UNC5291, UNC3236 and others [12] | C | 0 | C |
+| B-iii | VOLTZITE has also exploited edge devices itself, e.g. Versa Director CVE-2024-39717 [9] | 0 | C | C |
+| B-iv | No public evidence of a sale, a price or a market transaction [12] | 0 | 0 | 0 |
+
+### Judgement B
+
+**B1 is likely, at moderate confidence.** It is the only judgement here carried by direct observation
+rather than by naming: Dragos states it watched the handoff. B2 is not excluded for other intrusions —
+B-iii shows the actor still does its own initial access where it can — and B3 cannot be separated from
+B1 on public evidence, because a one-directional handoff and a shared-access arrangement look the same
+from outside.
+
+The distinction matters for defenders: under B1, edge-device exploitation by *any* cluster in the
+ecosystem is a precursor to this actor, not a separate problem to triage away.
 
 ## Sensitivity — how much of this is the prior?
 
-Two numbers decide H1, and neither is measured.
+The identity judgement is not robust, and it should say so.
 
 **The prior.** Before the evidence, the odds that two vendor cryptonyms for the same activity are one
 organisational unit are close to even: renames are common, splits are common, and nothing here
 establishes which this is.
 
-**The discriminant.** The evidence that moves H1 is not about the actor. E1, E4 and E9 are one
-observation — no vendor asserts identity — repeated three times, and it is evidence about what
-vendors are willing to say. Counted once, it is weak. Counted three times, the matrix overweights it.
+**The discriminant.** A-i is the only item that moves A1, and it is not about the actor: it is about
+what vendors are willing to say. Counted once, it is weak. If the prior were 30% rather than even, no
+combination of the current evidence would lift A1 out of “unlikely”. An explicit assertion of identity,
+or published infrastructure or code establishing a shared operator, would move it across 50% on its
+own.
 
-That is why the band is wide. The strongest documentary evidence that exists today is an alias list —
-CISA records VOLTZITE among Volt Typhoon's aliases (E3, E10) — which is the weakest form of an
-identity claim, and the matrix already counts it. An explicit statement that they are one unit, or
-published infrastructure or code establishing a shared operator, would move H1 across 50% on its own.
-If the prior were 30% rather than even, no combination of the current evidence would lift H1 out of
-"unlikely". A reader who disagrees with the prior should disagree with the band — the matrix is the
-same either way, and that is the honest state of the question.
+Question B is different. B-i is a direct observation, so its judgement depends on whether Dragos is
+right, not on a prior — which is why it carries moderate confidence with a single source and A1 does
+not.
 
 ## What would break the tie
 
-- A government or vendor statement that explicitly **asserts or denies identity**.
+- A vendor or government statement that **explicitly asserts or denies identity** — the alias list is
+  the weak form of this evidence, and it is already counted.
 - Published **infrastructure or code reuse** establishing a shared operator rather than shared tooling.
-- Details of **SYLVANITE tasking** — whether it serves one consumer or several.
-- A **joint advisory** naming VOLTZITE and Volt Typhoon together as one actor or as distinct.
+- Detail on **SYLVANITE tasking**: whether it serves one consumer cluster or several.
+- A joint advisory naming VOLTZITE and Volt Typhoon together as one actor or as distinct.
 
 ## Intelligence gaps
 
-- Vendor taxonomy is internal and seldom explained; "overlap" is not a standardised term.
-- Dragos's 2026 report is the load-bearing source (E1, E2, E7, E8) and represents a single vendor.
-- No access to private telemetry or shared-infrastructure analysis; this is an open-source assessment
-  and is bounded by that.
+- Vendor taxonomy is internal and seldom explained; “overlap” is not a standardised term.
+- The Dragos 2026 report is load-bearing for A-i and B-i and represents a single vendor.
+- No public infrastructure or code links the two designations; this is the gap that keeps both leading
+  hypotheses at low confidence.
+- No telemetry, no samples, no shared-infrastructure analysis: this is an open-source assessment and is
+  bounded by that.
 
 ## Sources
 
-1. CISA, NSA, FBI and international partners — **Joint Cybersecurity Advisory AA24-038A: PRC
-   State-Sponsored Actors Compromise and Maintain Persistent Access to U.S. Critical Infrastructure**
-   (7 Feb 2024). https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a
+The numbering follows the [Volt Typhoon profile](/volt-typhoon-actor-profile/), which holds the full
+list; only the entries cited here are repeated. Entries 2, 4, 5, 6, 8 and 11 are in the profile and
+are not cited in this product.
+
+1. CISA, NSA, FBI and international partners — **Joint Cybersecurity Advisory AA24-038A** (7 Feb 2024).
+   https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a
 3. MITRE ATT&CK — **Group G1017: Volt Typhoon** (v2.0, last modified 31 Jul 2026).
    https://attack.mitre.org/groups/G1017
 7. Dragos — **OT/ICS Cybersecurity Report 2026: Year in Review** (17 Feb 2026).
@@ -149,10 +163,10 @@ same either way, and that is the honest state of the question.
 9. MITRE ATT&CK — **Campaign C0039: Versa Director Zero Day Exploitation** (June–August 2024).
    https://attack.mitre.org/campaigns/C0039
 10. Palo Alto Networks Unit 42 — **Threat Brief: Attacks on Critical Infrastructure Attributed to
-    Insidious Taurus (Volt Typhoon)** (Feb 2024). https://unit42.paloaltonetworks.com/volt-typhoon-threat-brief/
-
-The numbering follows the [Volt Typhoon actor profile](/volt-typhoon-actor-profile/), which holds the
-full source list and the unreferenced entries.
+    Insidious Taurus (Volt Typhoon)** (Feb 2024).
+    https://unit42.paloaltonetworks.com/volt-typhoon-threat-brief/
+12. Dragos — **SYLVANITE** threat group page (accessed 28 Oct 2026).
+    https://www.dragos.com/threat/sylvanite/
 
 ---
 
@@ -166,3 +180,4 @@ full source list and the unreferenced entries.
 | 1.1 | 2026-10-28 | Handling corrected from the retired TLP 1.0 label to `TLP:CLEAR`, now checked in CI. The Volt Typhoon profile's identity row was aligned to this product's judgement. The matrix, the hypotheses and the judgement are unchanged. |
 | 1.2 | 2026-10-28 | Citation corrected: the SYLVANITE handoff (E7) is a Dragos observation, not an ATT&CK record. The matrix, the hypotheses and the judgement are unchanged. |
 | 1.3 | 2026-10-28 | Added a sensitivity paragraph: H1 rests on a prior near even and one weak observation repeated three times; one documentary event would move it across 50%. The matrix and the judgement are unchanged. |
+| 2.0 | 2026-10-28 | Split identity from mechanism; grouped the naming observation; gave A2 a refutation condition; moved A1 from `unlikely` to `roughly even` and A2 from `moderate` to `low`; registered the judgements so the ceiling is computed. The identity judgement changed. |

@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "product": "2026-10-09-ach-voltzite-volt-typhoon",
+  "mode": "ach",
+  "sources": [
+    {"id": "S1", "publisher": "CISA", "derived_from": []},
+    {"id": "S3", "publisher": "MITRE ATT&CK", "derived_from": ["S1"]},
+    {"id": "S7", "publisher": "Dragos", "derived_from": []},
+    {"id": "S9", "publisher": "MITRE ATT&CK", "derived_from": []},
+    {"id": "S10", "publisher": "Palo Alto Networks Unit 42", "derived_from": []},
+    {"id": "S12", "publisher": "Dragos", "derived_from": []}
+  ],
+  "hypotheses": [
+    {"id": "A1", "label": "same organisational unit"},
+    {"id": "A2", "label": "distinct units, related"},
+    {"id": "A3", "label": "distinct and unrelated"}
+  ],
+  "evidence": [
+    {
+      "id": "A-i",
+      "statement": "No vendor asserts identity: Dragos says technical overlaps, MITRE records Associated Groups, CISA lists an alias",
+      "type": "linguistic",
+      "source_id": "S7",
+      "reliability": "B",
+      "consistency": {"A1": "0", "A2": "C", "A3": "C"}
+    },
+    {
+      "id": "A-ii",
+      "statement": "CISA lists Voltzite among Volt Typhoon's aliases",
+      "type": "structural",
+      "source_id": "S1",
+      "reliability": "A",
+      "consistency": {"A1": "C", "A2": "0", "A3": "0"}
+    },
+    {
+      "id": "A-iii",
+      "statement": "Same sectors and the same living-off-the-land tradecraft",
+      "type": "tactics",
+      "source_id": "S10",
+      "reliability": "B",
+      "consistency": {"A1": "C", "A2": "C", "A3": "C"}
+    }
+  ],
+  "judgements": [
+    {
+      "hypothesis": "A1",
+      "key": "voltzite.identity",
+      "claim": "Dragos's VOLTZITE is the same actor as Volt Typhoon",
+      "confidence": "low",
+      "probability": "roughly_even"
+    },
+    {
+      "hypothesis": "A2",
+      "key": "voltzite.related",
+      "claim": "The clusters are distinct but related",
+      "confidence": "low",
+      "probability": "roughly_even"
+    },
+    {
+      "hypothesis": "A3",
+      "key": "voltzite.unrelated",
+      "claim": "The clusters are unrelated",
+      "confidence": "low",
+      "probability": "very_unlikely"
+    }
+  ],
+  "claims": [
+    {
+      "id": "B1",
+      "key": "sylvanite.brokered",
+      "claim": "SYLVANITE hands established access to VOLTZITE",
+      "class": "observed",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S12", "direct": true, "reliability": "B"}]
+    }
+  ]
+}

@@ -9,7 +9,7 @@ categories: threat-intelligence
 |---|---|
 | **Product** | Actor profile |
 | **Handling** | TLP:CLEAR — open sources only |
-| **Version** | 2.2 (2026-10-28) |
+| **Version** | 2.3 (2026-10-28) |
 | **Review trigger** | MITRE ATT&CK or government update, a confirmed disruptive effect, or new edge-device exploitation |
 | **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
@@ -88,7 +88,7 @@ name (§3).
 | Initial access increasingly brokered by SYLVANITE and handed to Volt Typhoon/VOLTZITE | Moderate | likely | [7][12] |
 | Reached Stage 2 of the ICS Cyber Kill Chain in 2025 (engineering workstations, cellular gateways) | Moderate | n/a | [7] |
 | Operated by the PLA Cyberspace Force | Low | n/a | [11] |
-| Dragos's VOLTZITE is the same actor as Volt Typhoon | Low | unlikely | [3][7] · [ACH](/ach-voltzite-volt-typhoon/) |
+| Dragos's VOLTZITE is the same actor as Volt Typhoon | Low | roughly even chance | [3][7] · [ACH](/ach-voltzite-volt-typhoon/) |
 
 ## 3. Tradecraft
 
@@ -281,3 +281,4 @@ What to look for, not a validated ruleset (consistent with the rule-provenance p
 | 2.0 | 2026-10-09 | Split confidence and probability into two axes; added the product header, the outlook and this history. No assessed fact changed. |
 | 2.1 | 2026-10-28 | The VOLTZITE identity row now carries the ACH's judgement (`unlikely`, ~20–45%) instead of `roughly even chance`, and points to the product that tests it. Handling corrected from the retired TLP 1.0 label to `TLP:CLEAR`, now checked in CI. No other assessed fact changed. |
 | 2.2 | 2026-10-28 | Corrected the SYLVANITE attribution: MITRE records campaign C0029, not a group, and G1017 does not mention SYLVANITE. Added the overlap list — eight names, assessed by Dragos as multiple entities under one direction — including UNC3236, an ATT&CK alias of Volt Typhoon, and the reason overlap must not be read as identity. Ledger basis for the broker row moved from [3][7] to [7][12]. |
+| 2.3 | 2026-10-28 | The identity row follows ACH v2.0: `roughly even chance` instead of `unlikely`, because v2 counts the naming observation once instead of three times. The probability changed; the confidence did not. |
