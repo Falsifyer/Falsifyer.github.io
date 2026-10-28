@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "product": "2026-10-07-volt-typhoon-actor-profile",
+  "mode": "claim",
+  "sources": [
+    {"id": "S1", "publisher": "CISA", "derived_from": []},
+    {"id": "S3", "publisher": "MITRE ATT&CK", "derived_from": ["S1"]},
+    {"id": "S6", "publisher": "U.S. Department of Justice", "derived_from": []},
+    {"id": "S7", "publisher": "Dragos", "derived_from": []},
+    {"id": "S8", "publisher": "Dragos", "derived_from": []},
+    {"id": "S9", "publisher": "MITRE ATT&CK", "derived_from": []},
+    {"id": "S10", "publisher": "Palo Alto Networks Unit 42", "derived_from": []},
+    {"id": "S11", "publisher": "Public reporting", "derived_from": []},
+    {"id": "S12", "publisher": "Dragos", "derived_from": []}
+  ],
+  "claims": [
+    {
+      "id": "VT-01",
+      "key": "volt.typhoon.sponsor",
+      "claim": "PRC state-sponsored, active since at least 2021",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}, {"id": "S3", "direct": true}]
+    },
+    {
+      "id": "VT-02",
+      "key": "volt.typhoon.sectors",
+      "claim": "Targets communications, energy, transportation and water/wastewater in the US and its territories, including Guam",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}]
+    },
+    {
+      "id": "VT-03",
+      "key": "volt.typhoon.prepositioning",
+      "claim": "Assessed as pre-positioning for disruptive or destructive attacks against OT",
+      "class": "documented",
+      "type": "estimative",
+      "confidence": "moderate",
+      "probability": "likely",
+      "sources": [{"id": "S1", "direct": true}, {"id": "S3", "direct": true}]
+    },
+    {
+      "id": "VT-04",
+      "key": "volt.typhoon.lotl",
+      "claim": "Living-off-the-land tradecraft: stolen credentials, wmic, ntdsutil, netsh, PowerShell, minimal custom malware",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}, {"id": "S3", "direct": true}]
+    },
+    {
+      "id": "VT-05",
+      "key": "volt.typhoon.soho",
+      "claim": "Uses compromised SOHO routers (KV Botnet and successors) to proxy C2 and obscure origin",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "high",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}, {"id": "S6", "direct": true}, {"id": "S8", "direct": true}]
+    },
+    {
+      "id": "VT-06",
+      "key": "volt.typhoon.versa",
+      "claim": "Exploited the Versa Director zero-day CVE-2024-39717 with the VersaMem web shell",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S3", "direct": true}, {"id": "S9", "direct": true}]
+    },
+    {
+      "id": "VT-07",
+      "key": "volt.typhoon.sockdetour",
+      "claim": "Deployed the SockDetour backdoor in at least one intrusion",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S10", "direct": true}]
+    },
+    {
+      "id": "VT-08",
+      "key": "volt.typhoon.brokered",
+      "claim": "Initial access increasingly brokered by SYLVANITE and handed to Volt Typhoon/VOLTZITE",
+      "class": "observed",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": "likely",
+      "sources": [{"id": "S7", "direct": true}, {"id": "S12", "direct": true}]
+    },
+    {
+      "id": "VT-09",
+      "key": "volt.typhoon.stage2",
+      "claim": "Reached Stage 2 of the ICS Cyber Kill Chain in 2025 (engineering workstations, cellular gateways)",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S7", "direct": true}]
+    },
+    {
+      "id": "VT-10",
+      "key": "volt.typhoon.unit",
+      "claim": "Operated by the PLA Cyberspace Force",
+      "class": "assessed",
+      "type": "factual",
+      "confidence": "low",
+      "probability": null,
+      "sources": [{"id": "S11", "direct": true}]
+    },
+    {
+      "id": "VT-11",
+      "key": "voltzite.identity",
+      "claim": "Dragos's VOLTZITE is the same actor as Volt Typhoon",
+      "class": "assessed",
+      "type": "estimative",
+      "confidence": "low",
+      "probability": "roughly_even",
+      "sources": [{"id": "S3", "direct": false}, {"id": "S7", "direct": false}]
+    }
+  ]
+}

@@ -9,7 +9,7 @@ categories: threat-intelligence
 |---|---|
 | **Product** | Actor profile |
 | **Handling** | TLP:CLEAR — open sources only |
-| **Version** | 2.3 (2026-10-28) |
+| **Version** | 2.4 (2026-10-28) |
 | **Review trigger** | MITRE ATT&CK or government update, a confirmed disruptive effect, or new edge-device exploitation |
 | **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
@@ -78,12 +78,12 @@ name (§3).
 
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
-| PRC state-sponsored, active since at least 2021 | High | n/a | [1][3] |
-| Targets communications, energy, transportation and water/wastewater in the US and its territories, including Guam | High | n/a | [1] |
-| Assessed as pre-positioning for disruptive or destructive attacks against OT | High | likely | [1][3] |
-| Living-off-the-land tradecraft: stolen credentials, `wmic`/`ntdsutil`/`netsh`/PowerShell, minimal custom malware | High | n/a | [1][3] |
+| PRC state-sponsored, active since at least 2021 | Moderate | n/a | [1][3] |
+| Targets communications, energy, transportation and water/wastewater in the US and its territories, including Guam | Moderate | n/a | [1] |
+| Assessed as pre-positioning for disruptive or destructive attacks against OT | Moderate | likely | [1][3] |
+| Living-off-the-land tradecraft: stolen credentials, `wmic`/`ntdsutil`/`netsh`/PowerShell, minimal custom malware | Moderate | n/a | [1][3] |
 | Uses compromised SOHO routers (KV Botnet and successors) to proxy C2 and obscure origin | High | n/a | [1][6][8] |
-| Exploited the Versa Director zero-day CVE-2024-39717 with the VersaMem web shell | High | n/a | [3][9] |
+| Exploited the Versa Director zero-day CVE-2024-39717 with the VersaMem web shell | Moderate | n/a | [3][9] |
 | Deployed the SockDetour backdoor in at least one intrusion | Moderate | n/a | [10] |
 | Initial access increasingly brokered by SYLVANITE and handed to Volt Typhoon/VOLTZITE | Moderate | likely | [7][12] |
 | Reached Stage 2 of the ICS Cyber Kill Chain in 2025 (engineering workstations, cellular gateways) | Moderate | n/a | [7] |
@@ -282,3 +282,4 @@ What to look for, not a validated ruleset (consistent with the rule-provenance p
 | 2.1 | 2026-10-28 | The VOLTZITE identity row now carries the ACH's judgement (`unlikely`, ~20–45%) instead of `roughly even chance`, and points to the product that tests it. Handling corrected from the retired TLP 1.0 label to `TLP:CLEAR`, now checked in CI. No other assessed fact changed. |
 | 2.2 | 2026-10-28 | Corrected the SYLVANITE attribution: MITRE records campaign C0029, not a group, and G1017 does not mention SYLVANITE. Added the overlap list — eight names, assessed by Dragos as multiple entities under one direction — including UNC3236, an ATT&CK alias of Volt Typhoon, and the reason overlap must not be read as identity. Ledger basis for the broker row moved from [3][7] to [7][12]. |
 | 2.3 | 2026-10-28 | The identity row follows ACH v2.0: `roughly even chance` instead of `unlikely`, because v2 counts the naming observation once instead of three times. The probability changed; the confidence did not. |
+| 2.4 | 2026-10-28 | Grades now computed from the claim registry. Five `High` became `Moderate`: MITRE G1017 derives from the CISA advisory, so it is not a second voice, and two ATT&CK objects are one publisher. The facts are unchanged; the confidence was overstated. |
