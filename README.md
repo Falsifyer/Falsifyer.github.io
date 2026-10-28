@@ -82,6 +82,36 @@ commit.
 `scripts/selftest.py` proves the three rejections: a grade above the ceiling, a derived
 source counted twice, and a derivation cycle.
 
+## Generated blocks, and the kramdown trap
+
+Two regions are rewritten in place: the assessment tables (`scripts/render_claims.py`) and the
+falsification register (`scripts/render_falsification.py`). Both are checked in CI, so a table
+that drifts from its registry fails the build.
+
+**A marker must never be a standalone HTML comment line.** kramdown opens an HTML block on one,
+and a GFM table that follows it — even after a blank line and a paragraph — is published as
+text, pipes and all:
+
+```
+<!-- register:begin -->
+
+A lede paragraph.
+
+| Product | Claim |
+|---|---|
+```
+
+Put the opening marker at the end of the paragraph that precedes the block:
+
+```
+A lede paragraph. <!-- register:begin -->
+
+| Product | Claim |
+|---|---|
+```
+
+The closing marker can stay on its own line: it closes nothing a later block depends on.
+
 ## Method
 
 Every claim carries its source and is graded on two independent axes, confidence and probability, per

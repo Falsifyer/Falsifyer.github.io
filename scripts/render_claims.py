@@ -60,6 +60,8 @@ def table(document: dict) -> str:
 def render(text: str, document: dict) -> str:
     if BEGIN not in text or END not in text:
         return text
+    # kramdown opens an HTML block on a standalone comment and then refuses to parse
+    # the GFM table that follows, so markers are only safe inline or after a table.
     head, rest = text.split(BEGIN, 1)
     _, tail = rest.split(END, 1)
     return f"{head}{BEGIN}\n{table(document)}\n{END}{tail}"
