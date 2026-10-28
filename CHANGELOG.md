@@ -8,7 +8,6 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - `scripts/sitegate.py` and its workflow: handling (through `sharegate`), versioning, freshness,
   grading vocabulary and cross-product consistency, with two negative fixtures that must fail.
-- `corrections.md` — public log of every change to a judgement, with the version it produced.
 - "The broker is the actor you can see": an access-layer assessment with a validated hunt plan in
   `hunts/sylvanite-handoff.json`.
 

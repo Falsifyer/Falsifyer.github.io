@@ -29,7 +29,6 @@ $ jekyll serve
 
 - `_posts/YYYY-MM-DD-slug.md` — one product. The permalink is the title.
 - `about.md`, `method.md`, `requirements.md`, `engineering.md` — the pages in the header.
-- `corrections.md` — the log of every change to a judgement.
 - `_config.yml` — title, description, theme and the header navigation.
 
 ## Checks
@@ -50,8 +49,7 @@ $ git clone --depth 1 https://github.com/ME0094/cti-suite _suite
 $ python3 scripts/sitegate.py
 ```
 
-A contradiction between products is a build failure, not a reader's discovery. Corrections are logged
-in [`corrections.md`](corrections.md).
+A contradiction between products is a build failure, not a reader's discovery.
 
 ## Method
 

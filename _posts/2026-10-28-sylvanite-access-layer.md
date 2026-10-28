@@ -50,8 +50,7 @@ OT-scope event, and the response clock starts at the appliance, not at the engin
 
 A campaign is an *event with a window*. A group is a *tracking construct*. A cluster is a *set of
 activity with a shared toolset*. Citing one for another is how this layer acquired a false clarity:
-the published Volt Typhoon profile did exactly that, and it was corrected on 2026-10-28
-([corrections](/corrections/)).
+the published Volt Typhoon profile did exactly that, and it was corrected on 2026-10-28 (profile v2.2).
 
 ## What was actually observed
 

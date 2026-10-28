@@ -54,8 +54,6 @@ rather than implied.
 - Each product carries a **version**, a **date** and a **review trigger** in its header.
 - Changes are recorded in the product's **Revision history**; no assessed fact is changed silently.
 - A correction that changes a judgement is published as a **new version**, not as an edit in place.
-- Every correction is also listed in the public [corrections log](/corrections/), with the version
-  it produced and whether an assessed fact changed.
 - A product carries a **next review** date, and `scripts/sitegate.py` fails the build once it has
   passed: an assessment that has outlived its review is not a product any more.
 
@@ -74,7 +72,6 @@ published without a stated provenance and a way to check that it still holds.
 
 ## Related
 
-- [Corrections](/corrections/)
 - [Requirements](/requirements/)
 - [About](/about/)
 
