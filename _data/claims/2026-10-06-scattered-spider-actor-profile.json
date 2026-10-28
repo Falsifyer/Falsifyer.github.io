@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "product": "2026-10-06-scattered-spider-actor-profile",
+  "mode": "claim",
+  "sources": [
+    {"id": "S1", "publisher": "CISA", "derived_from": []},
+    {"id": "S2", "publisher": "MITRE ATT&CK", "derived_from": ["S1"]},
+    {"id": "S3", "publisher": "Google Threat Intelligence", "derived_from": []},
+    {"id": "S4", "publisher": "Google Threat Intelligence", "derived_from": []},
+    {"id": "S5", "publisher": "Infosecurity Magazine", "derived_from": []},
+    {"id": "S6", "publisher": "BleepingComputer", "derived_from": []},
+    {"id": "S7", "publisher": "SC Media", "derived_from": []},
+    {"id": "S8", "publisher": "Computer Weekly", "derived_from": []}
+  ],
+  "claims": [
+    {
+      "id": "SS-01",
+      "key": "scattered.native_english",
+      "claim": "Native-English-speaking, active since at least 2022",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S2", "direct": true}]
+    },
+    {
+      "id": "SS-02",
+      "key": "scattered.initial_access",
+      "claim": "Initial access via help-desk vishing and MFA bypass (push bombing, SIM swap)",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}, {"id": "S2", "direct": true}]
+    },
+    {
+      "id": "SS-03",
+      "key": "scattered.rmm",
+      "claim": "Abuse of legitimate RMM tools (AnyDesk, TeamViewer, ScreenConnect, Splashtop, Tailscale, Teleport.sh)",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}]
+    },
+    {
+      "id": "SS-04",
+      "key": "scattered.mfa_tokens",
+      "claim": "Registers its own MFA tokens and historically adds a federated IdP to the SSO tenant",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}]
+    },
+    {
+      "id": "SS-05",
+      "key": "scattered.hypervisor",
+      "claim": "Hypervisor (vCenter/ESXi) operations",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "high",
+      "probability": null,
+      "sources": [{"id": "S2", "direct": true}, {"id": "S3", "direct": true}]
+    },
+    {
+      "id": "SS-06",
+      "key": "scattered.ransomware",
+      "claim": "Ransomware: BlackCat, and DragonForce from 2025",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}, {"id": "S2", "direct": true}]
+    },
+    {
+      "id": "SS-07",
+      "key": "scattered.sector_wave",
+      "claim": "Sector wave targeting (retail, insurance, airlines)",
+      "class": "observed",
+      "type": "estimative",
+      "confidence": "moderate",
+      "probability": "likely",
+      "sources": [{"id": "S3", "direct": true}, {"id": "S4", "direct": true}]
+    },
+    {
+      "id": "SS-08",
+      "key": "scattered.arrests",
+      "claim": "2025 arrests slowed the group",
+      "class": "observed",
+      "type": "estimative",
+      "confidence": "moderate",
+      "probability": "likely",
+      "sources": [{"id": "S5", "direct": true}]
+    },
+    {
+      "id": "SS-09",
+      "key": "scattered.slh",
+      "claim": "Scattered Lapsus$ Hunters is Scattered Spider plus Lapsus$ plus ShinyHunters",
+      "class": "assessed",
+      "type": "estimative",
+      "confidence": "low",
+      "probability": "roughly_even",
+      "sources": [{"id": "S6", "direct": true}, {"id": "S7", "direct": true}, {"id": "S8", "direct": true}]
+    },
+    {
+      "id": "SS-10",
+      "key": "scattered.salesforce_claim",
+      "claim": "The ~1 billion-record Salesforce claim",
+      "class": "assessed",
+      "type": "estimative",
+      "confidence": "low",
+      "probability": "unlikely",
+      "sources": [{"id": "S6", "direct": true}, {"id": "S7", "direct": true}]
+    }
+  ]
+}

@@ -9,7 +9,7 @@ categories: threat-intelligence
 |---|---|
 | **Product** | Actor profile |
 | **Handling** | TLP:CLEAR — open sources only |
-| **Version** | 2.1 (2026-10-28) |
+| **Version** | 2.2 (2026-10-28) |
 | **Review trigger** | New government advisory, MITRE ATT&CK update, vendor re-assessment, or law-enforcement action |
 | **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
@@ -70,12 +70,12 @@ Read the aliases as an **overlapping cluster, not a verified single identity** [
 
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
-| Native-English-speaking, active since at least 2022 | High | n/a | [2] |
-| Initial access via help-desk vishing + MFA bypass (push bombing, SIM swap) | High | n/a | [1][2] |
-| Abuse of legitimate RMM tools (AnyDesk, TeamViewer, ScreenConnect, Splashtop, Tailscale, Teleport.sh…) | High | n/a | [1] |
-| Registers its own MFA tokens; historically adds a federated IdP to the SSO tenant | High | n/a | [1] |
+| Native-English-speaking, active since at least 2022 | Moderate | n/a | [2] |
+| Initial access via help-desk vishing + MFA bypass (push bombing, SIM swap) | Moderate | n/a | [1][2] |
+| Abuse of legitimate RMM tools (AnyDesk, TeamViewer, ScreenConnect, Splashtop, Tailscale, Teleport.sh…) | Moderate | n/a | [1] |
+| Registers its own MFA tokens; historically adds a federated IdP to the SSO tenant | Moderate | n/a | [1] |
 | Hypervisor (vCenter/ESXi) operations | High | n/a | [2][3] |
-| Ransomware: BlackCat, and DragonForce from 2025 | High | n/a | [1][2] |
+| Ransomware: BlackCat, and DragonForce from 2025 | Moderate | n/a | [1][2] |
 | Sector "wave" targeting (retail, insurance, airlines) | Moderate | likely | [3][4] |
 | 2025 arrests slowed the group | Moderate | likely | [5] |
 | "Scattered Lapsus$ Hunters" = Scattered Spider + Lapsus$ + ShinyHunters | Low | roughly even chance | [6][7][8] |
@@ -209,3 +209,4 @@ The confidence above is a snapshot; these events would move it:
 | 1.0 | 2026-10-06 | First release. |
 | 2.0 | 2026-10-09 | Split confidence and probability into two axes; added the product header, the outlook and this history. No assessed fact changed. |
 | 2.1 | 2026-10-28 | Handling corrected from the retired TLP 1.0 label to `TLP:CLEAR` (TLP 2.0), now checked in CI. No assessed fact changed. |
+| 2.2 | 2026-10-28 | Grades now computed from the claim registry. Five `High` became `Moderate`: MITRE G1015 derives from the CISA-led advisory, and several rows rested on one source. The facts are unchanged; the confidence was overstated. |
