@@ -1,16 +1,17 @@
-title: "Martín Eliseo"
+title: "Falsifyer"
+author: "Martín Eliseo"
 description: "Cyber threat intelligence from open sources: adversary profiles, tradecraft, and the analysis behind them."
 url: "https://falsifyer.github.io"
 baseurl: ""
-theme: minima
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
 permalink: /:title/
-show_excerpts: true
 header_pages:
   - about.md
   - engineering.md
   - requirements.md
   - method.md
+plugins:
+  - jekyll-feed

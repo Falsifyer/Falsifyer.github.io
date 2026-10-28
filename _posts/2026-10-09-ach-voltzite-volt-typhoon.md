@@ -3,6 +3,7 @@ layout: post
 title: "Is VOLTZITE the same actor as Volt Typhoon? Two questions, not three hypotheses"
 date: 2026-10-09
 categories: threat-intelligence
+summary: "An analysis of competing hypotheses that splits one overloaded question into two — identity and mechanism — and grades the answer to each separately."
 ---
 
 | | |

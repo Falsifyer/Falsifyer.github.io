@@ -1,0 +1,65 @@
+---
+layout: default
+---
+{% assign products = site.posts %}
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker"><span class="kicker-rule" aria-hidden="true"></span>Open-source threat intelligence · {{ site.time | date: "%Y" }}</p>
+    <h1 class="hero-title">Intelligence that<br><em>shows its working.</em></h1>
+    <p class="hero-lede">{{ site.description }}</p>
+    <dl class="hero-stats">
+      <div><dt>Products</dt><dd>{{ products | size }}</dd></div>
+      <div><dt>Grading</dt><dd>Two axes</dd></div>
+      <div><dt>Handling</dt><dd>TLP:CLEAR</dd></div>
+      <div><dt>Method</dt><dd>Declared</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Products</h2>
+      <p class="section-note">Actor profiles, assessments and method notes. Every claim is graded, and the grade can be diffed.</p>
+    </div>
+
+    <ol class="cards">
+      {% for post in products %}
+      {% assign summary = post.summary | default: "" %}
+      <li class="card">
+        <a class="card-link" href="{{ post.url | relative_url }}">
+          <p class="card-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            {% if post.categories.size %}<span class="dot" aria-hidden="true">·</span>{{ post.categories | join: ", " }}{% endif %}
+          </p>
+          <h3 class="card-title">{{ post.title }}</h3>
+          {% if summary != "" %}<p class="card-summary">{{ summary }}</p>{% endif %}
+          <span class="card-more">Read the product <span aria-hidden="true">→</span></span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt" id="method">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">The method</h2>
+      <p class="section-note">The standard the products are held to is public, so a reader can judge the work instead of trusting it.</p>
+    </div>
+    <ul class="links">
+      {% for p in site.header_pages %}
+        {% assign doc = site.pages | where: "path", p | first %}
+        {% if doc %}
+        <li class="link-item">
+          <a href="{{ doc.url | relative_url }}">
+            <span class="link-title">{{ doc.title | default: doc.name }}</span>
+            <span class="link-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>

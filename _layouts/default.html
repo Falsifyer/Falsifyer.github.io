@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#12141a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)">
+
+  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_newlines }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+
+  <meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ page.description | default: site.description | strip_newlines }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body class="{% if page.collection == 'posts' %}is-post{% elsif page.url == '/' %}is-home{% else %}is-page{% endif %}">
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="{{ '/' | relative_url }}">
+        <span class="mark" aria-hidden="true">▚</span>
+        <span class="wordmark-text">{{ site.title | default: site.github.owner_name }}</span>
+        <span class="wordmark-tag">CTI</span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        {% for p in site.header_pages %}
+          {% assign doc = site.pages | where: "path", p | first %}
+          {% if doc %}
+            <a href="{{ doc.url | relative_url }}"{% if page.url == doc.url %} aria-current="page"{% endif %}>{{ doc.title | default: doc.name }}</a>
+          {% endif %}
+        {% endfor %}
+        <a href="https://github.com/Falsifyer" rel="me">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="mark" aria-hidden="true">▚</span>
+        <p class="footer-line">{{ site.title }} · open-source cyber threat intelligence.</p>
+      </div>
+      <div class="footer-meta">
+        <p>Judgements carry their confidence and probability, and every correction is logged.</p>
+        <p class="mono">
+          <a href="https://github.com/Falsifyer/Falsifyer.github.io/blob/main/CHANGELOG.md">Changelog</a>
+          <span aria-hidden="true">·</span>
+          <a href="{{ '/feed.xml' | relative_url }}">Feed</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://github.com/Falsifyer/Falsifyer.github.io">Source</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
