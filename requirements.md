@@ -19,9 +19,9 @@ answers a question nobody asked is not intelligence.
 
 | PIR | EEI | Collection | Product |
 |---|---|---|---|
-| PIR-1 | Sector targeting; stage in the ICS Cyber Kill Chain; access mechanism; exploited CVEs | Government advisories (CISA/NSA), MITRE ATT&CK campaigns, OT vendor reporting | [Volt Typhoon profile](/volt-typhoon-actor-profile/) · [ACH assessment](/ach-voltzite-volt-typhoon/) |
+| PIR-1 | Sector targeting; stage in the ICS Cyber Kill Chain; access mechanism; exploited CVEs | Government advisories (CISA/NSA), MITRE ATT&CK campaigns, OT vendor reporting | [Volt Typhoon profile](/volt-typhoon-actor-profile/) · [ACH assessment](/ach-voltzite-volt-typhoon/) · [Access layer](/sylvanite-access-layer/) |
 | PIR-2 | Vishing/MFA tactics; IdP manipulation; help-desk abuse; RMM misuse | CISA advisories, MITRE ATT&CK, vendor CTI | [Scattered Spider profile](/scattered-spider-actor-profile/) |
-| PIR-3 | Alias mapping; vendor language; confidence gradations | MITRE ATT&CK groups, vendor reports, advisories | Naming sections in each profile · [ACH assessment](/ach-voltzite-volt-typhoon/) |
+| PIR-3 | Alias mapping; vendor language; confidence gradations | MITRE ATT&CK groups, vendor reports, advisories | Naming sections in each profile · [ACH assessment](/ach-voltzite-volt-typhoon/) · [Access layer](/sylvanite-access-layer/) |
 
 ## Collection and cadence
 

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://github.com/ME0094/cti-suite/schemas/huntplan.schema.json",
+  "schema_version": "1.0",
+  "id": "HUNT-SYLVANITE-001",
+  "assessment_id": "sylvanite-access-layer",
+  "question": "Does the access layer leave an observable signature before OT-facing collection begins?",
+  "hypothesis": "If SYLVANITE handed access to VOLTZITE, then edge-appliance audit logs will show a newly created local administrator account followed within 14 days by domain-account logons and credential dumping on the same estate",
+  "techniques": [
+    "T1078",
+    "T1021",
+    "T1003",
+    "T1059"
+  ],
+  "closure": "Confirmed if at least two incidents show the three stages in order within 14 days. Refuted if, across three public incident reports or 90 days of telemetry, broker-stage artefacts are absent in the majority, or the OT-facing stage systematically precedes them. A negative result closes the hunt for that window; it does not establish that the actor is absent.",
+  "actor": "SYLVANITE (Dragos) to VOLTZITE / Volt Typhoon"
+}
