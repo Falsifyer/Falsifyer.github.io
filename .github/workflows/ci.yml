@@ -37,3 +37,6 @@ jobs:
           test -f "_site/scattered-spider-actor-profile/index.html"
           test -f "_site/ach-voltzite-volt-typhoon/index.html"
           test -f "_site/from-source-to-a-defensible-judgement/index.html"
+          test -f "_site/sylvanite-access-layer/index.html"
+          test -f "_site/corrections/index.html"
+          test -f "_site/hunts/sylvanite-handoff.json"
