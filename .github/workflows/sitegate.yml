@@ -24,6 +24,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Tables match their registries
+        run: python scripts/render_claims.py --check
+
       - name: Gate the products
         run: python scripts/sitegate.py --suite _suite
 

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "product": "2026-10-28-sylvanite-access-layer",
+  "mode": "claim",
+  "sources": [
+    {"id": "S1", "publisher": "Dragos", "ref": "1", "derived_from": []},
+    {"id": "S2", "publisher": "Mandiant", "ref": "2", "derived_from": []},
+    {"id": "S3", "publisher": "MITRE ATT&CK", "ref": "3", "derived_from": ["S2"]},
+    {"id": "S4", "publisher": "MITRE ATT&CK", "ref": "4", "derived_from": ["S5"]},
+    {"id": "S5", "publisher": "CISA", "ref": "5", "derived_from": []}
+  ],
+  "claims": [
+    {
+      "id": "SYL-01",
+      "key": "sylvanite.exists",
+      "claim": "SYLVANITE is a Dragos-tracked initial-access group active since 2023 that weaponises edge-device proofs of concept",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}]
+    },
+    {
+      "id": "SYL-02",
+      "key": "sylvanite.handoff",
+      "claim": "Dragos states it directly observed SYLVANITE handing established footholds to VOLTZITE, with the interval as short as days",
+      "class": "observed",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}]
+    },
+    {
+      "id": "SYL-03",
+      "key": "sylvanite.overlap_entities",
+      "claim": "The names overlapping SYLVANITE are best read as multiple entities under one direction, not one actor",
+      "class": "assessed",
+      "type": "estimative",
+      "confidence": "moderate",
+      "probability": "likely",
+      "sources": [{"id": "S1", "direct": true}]
+    },
+    {
+      "id": "SYL-04",
+      "key": "sylvanite.unc5174",
+      "claim": "UNC5174 (Uteus) is assessed as a PRC access broker that attempted to sell access to edge-device victims",
+      "class": "assessed",
+      "type": "estimative",
+      "confidence": "moderate",
+      "probability": "likely",
+      "sources": [{"id": "S2", "direct": true}]
+    },
+    {
+      "id": "SYL-05",
+      "key": "sylvanite.c0029",
+      "claim": "ATT&CK records C0029 as a campaign covering Ivanti exploitation, not a group named SYLVANITE",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [{"id": "S3", "direct": true}, {"id": "S4", "direct": true}]
+    },
+    {
+      "id": "SYL-06",
+      "key": "sylvanite.unc3236",
+      "claim": "UNC3236 is both an ATT&CK alias of Volt Typhoon and a Dragos overlap of SYLVANITE",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "high",
+      "probability": null,
+      "sources": [{"id": "S1", "direct": true}, {"id": "S4", "direct": true}]
+    },
+    {
+      "id": "SYL-07",
+      "key": "sylvanite.unc5174_identity",
+      "claim": "SYLVANITE and UNC5174 are the same actor",
+      "class": "assessed",
+      "type": "estimative",
+      "confidence": "low",
+      "probability": "unlikely",
+      "sources": [{"id": "S1", "direct": false}, {"id": "S2", "direct": false}]
+    }
+  ]
+}

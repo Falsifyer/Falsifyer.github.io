@@ -3,17 +3,58 @@
   "product": "2026-10-09-ach-voltzite-volt-typhoon",
   "mode": "ach",
   "sources": [
-    {"id": "S1", "publisher": "CISA", "derived_from": []},
-    {"id": "S3", "publisher": "MITRE ATT&CK", "derived_from": ["S1"]},
-    {"id": "S7", "publisher": "Dragos", "derived_from": []},
-    {"id": "S9", "publisher": "MITRE ATT&CK", "derived_from": []},
-    {"id": "S10", "publisher": "Palo Alto Networks Unit 42", "derived_from": []},
-    {"id": "S12", "publisher": "Dragos", "derived_from": []}
+    {
+      "id": "S1",
+      "publisher": "CISA",
+      "derived_from": [],
+      "ref": "1"
+    },
+    {
+      "id": "S3",
+      "publisher": "MITRE ATT&CK",
+      "derived_from": [
+        "S1"
+      ],
+      "ref": "3"
+    },
+    {
+      "id": "S7",
+      "publisher": "Dragos",
+      "derived_from": [],
+      "ref": "7"
+    },
+    {
+      "id": "S9",
+      "publisher": "MITRE ATT&CK",
+      "derived_from": [],
+      "ref": "9"
+    },
+    {
+      "id": "S10",
+      "publisher": "Palo Alto Networks Unit 42",
+      "derived_from": [],
+      "ref": "10"
+    },
+    {
+      "id": "S12",
+      "publisher": "Dragos",
+      "derived_from": [],
+      "ref": "12"
+    }
   ],
   "hypotheses": [
-    {"id": "A1", "label": "same organisational unit"},
-    {"id": "A2", "label": "distinct units, related"},
-    {"id": "A3", "label": "distinct and unrelated"}
+    {
+      "id": "A1",
+      "label": "same organisational unit"
+    },
+    {
+      "id": "A2",
+      "label": "distinct units, related"
+    },
+    {
+      "id": "A3",
+      "label": "distinct and unrelated"
+    }
   ],
   "evidence": [
     {
@@ -22,7 +63,11 @@
       "type": "linguistic",
       "source_id": "S7",
       "reliability": "B",
-      "consistency": {"A1": "0", "A2": "C", "A3": "C"}
+      "consistency": {
+        "A1": "0",
+        "A2": "C",
+        "A3": "C"
+      }
     },
     {
       "id": "A-ii",
@@ -30,7 +75,11 @@
       "type": "structural",
       "source_id": "S1",
       "reliability": "A",
-      "consistency": {"A1": "C", "A2": "0", "A3": "0"}
+      "consistency": {
+        "A1": "C",
+        "A2": "0",
+        "A3": "0"
+      }
     },
     {
       "id": "A-iii",
@@ -38,7 +87,11 @@
       "type": "tactics",
       "source_id": "S10",
       "reliability": "B",
-      "consistency": {"A1": "C", "A2": "C", "A3": "C"}
+      "consistency": {
+        "A1": "C",
+        "A2": "C",
+        "A3": "C"
+      }
     }
   ],
   "judgements": [
@@ -47,21 +100,37 @@
       "key": "voltzite.identity",
       "claim": "Dragos's VOLTZITE is the same actor as Volt Typhoon",
       "confidence": "low",
-      "probability": "roughly_even"
+      "probability": "roughly_even",
+      "sources": [
+        "S1",
+        "S3",
+        "S7",
+        "S12"
+      ]
     },
     {
       "hypothesis": "A2",
       "key": "voltzite.related",
       "claim": "The clusters are distinct but related",
       "confidence": "low",
-      "probability": "roughly_even"
+      "probability": "roughly_even",
+      "sources": [
+        "S1",
+        "S3",
+        "S7",
+        "S12"
+      ]
     },
     {
       "hypothesis": "A3",
       "key": "voltzite.unrelated",
       "claim": "The clusters are unrelated",
       "confidence": "low",
-      "probability": "very_unlikely"
+      "probability": "very_unlikely",
+      "sources": [
+        "S1",
+        "S10"
+      ]
     }
   ],
   "claims": [
@@ -73,7 +142,13 @@
       "type": "factual",
       "confidence": "moderate",
       "probability": null,
-      "sources": [{"id": "S12", "direct": true, "reliability": "B"}]
+      "sources": [
+        {
+          "id": "S12",
+          "direct": true,
+          "reliability": "B"
+        }
+      ]
     }
   ]
 }

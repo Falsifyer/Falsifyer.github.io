@@ -68,18 +68,20 @@ Read the aliases as an **overlapping cluster, not a verified single identity** [
 
 ## 2. Assessment ledger
 
+<!-- claims:begin -->
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
 | Native-English-speaking, active since at least 2022 | Moderate | n/a | [2] |
-| Initial access via help-desk vishing + MFA bypass (push bombing, SIM swap) | Moderate | n/a | [1][2] |
-| Abuse of legitimate RMM tools (AnyDesk, TeamViewer, ScreenConnect, Splashtop, Tailscale, Teleport.sh…) | Moderate | n/a | [1] |
-| Registers its own MFA tokens; historically adds a federated IdP to the SSO tenant | Moderate | n/a | [1] |
+| Initial access via help-desk vishing and MFA bypass (push bombing, SIM swap) | Moderate | n/a | [1][2] |
+| Abuse of legitimate RMM tools (AnyDesk, TeamViewer, ScreenConnect, Splashtop, Tailscale, Teleport.sh) | Moderate | n/a | [1] |
+| Registers its own MFA tokens and historically adds a federated IdP to the SSO tenant | Moderate | n/a | [1] |
 | Hypervisor (vCenter/ESXi) operations | High | n/a | [2][3] |
 | Ransomware: BlackCat, and DragonForce from 2025 | Moderate | n/a | [1][2] |
-| Sector "wave" targeting (retail, insurance, airlines) | Moderate | likely | [3][4] |
+| Sector wave targeting (retail, insurance, airlines) | Moderate | likely | [3][4] |
 | 2025 arrests slowed the group | Moderate | likely | [5] |
-| "Scattered Lapsus$ Hunters" = Scattered Spider + Lapsus$ + ShinyHunters | Low | roughly even chance | [6][7][8] |
+| Scattered Lapsus$ Hunters is Scattered Spider plus Lapsus$ plus ShinyHunters | Low | roughly even chance | [6][7][8] |
 | The ~1 billion-record Salesforce claim | Low | unlikely | [6][7] |
+<!-- claims:end -->
 
 ## 3. Tradecraft
 

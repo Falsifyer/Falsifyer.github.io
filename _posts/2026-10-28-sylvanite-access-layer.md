@@ -9,7 +9,7 @@ categories: threat-intelligence
 |---|---|
 | **Product** | Assessment (access layer, with a hunt plan) |
 | **Handling** | TLP:CLEAR — open sources only |
-| **Version** | 1.0 (2026-10-28) |
+| **Version** | 1.1 (2026-10-28) |
 | **Review trigger** | A vendor or government statement linking the access clusters; a new edge-device campaign; a public incident that shows the handoff |
 | **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
@@ -98,16 +98,17 @@ to avoid, one layer down.
 
 ## Assessment ledger
 
+<!-- claims:begin -->
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
 | SYLVANITE is a Dragos-tracked initial-access group active since 2023 that weaponises edge-device proofs of concept | Moderate | n/a | [1] |
 | Dragos states it directly observed SYLVANITE handing established footholds to VOLTZITE, with the interval as short as days | Moderate | n/a | [1] |
 | The names overlapping SYLVANITE are best read as multiple entities under one direction, not one actor | Moderate | likely | [1] |
-| UNC5174 ("Uteus") is assessed as a PRC access broker that attempted to sell access to edge-device victims | Moderate | likely | [2] |
+| UNC5174 (Uteus) is assessed as a PRC access broker that attempted to sell access to edge-device victims | Moderate | likely | [2] |
 | ATT&CK records C0029 as a campaign covering Ivanti exploitation, not a group named SYLVANITE | Moderate | n/a | [3][4] |
 | UNC3236 is both an ATT&CK alias of Volt Typhoon and a Dragos overlap of SYLVANITE | High | n/a | [1][4] |
 | SYLVANITE and UNC5174 are the same actor | Low | unlikely | [1][2] |
-| Edge-device exploitation by any cluster in this ecosystem should trigger an OT-scope response | Moderate | likely | [1][2][5] |
+<!-- claims:end -->
 
 The last two rows are the ones to hold carefully. Row 7 is *not* "unlikely" because the clusters look
 different; it is "unlikely" because the only thing joining them is commodity tooling — SUPERSHELL is
@@ -193,3 +194,4 @@ covered by the appliance's own audit log, which is where the hypothesis starts a
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-28 | First release. |
+| 1.1 | 2026-10-28 | The operational recommendation left the ledger: a recommendation is not a claim, and the ledger now holds only what evidence can grade. It remains in the bottom line and in the defender section. Grades are computed from the claim registry. |

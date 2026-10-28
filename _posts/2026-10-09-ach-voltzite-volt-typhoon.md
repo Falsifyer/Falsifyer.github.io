@@ -76,11 +76,13 @@ open sources either.
 
 ### Assessment ledger
 
+<!-- claims:begin -->
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
 | Dragos's VOLTZITE is the same actor as Volt Typhoon | Low | roughly even chance | [1][3][7][12] |
 | The clusters are distinct but related | Low | roughly even chance | [1][3][7][12] |
 | The clusters are unrelated | Low | very unlikely | [1][10] |
+<!-- claims:end -->
 
 Both leading hypotheses are `low` because **nothing diagnostic exists in public**: the ceiling is set
 by the evidence, and no amount of vendor language raises it. v1.3 graded “distinct but related” at

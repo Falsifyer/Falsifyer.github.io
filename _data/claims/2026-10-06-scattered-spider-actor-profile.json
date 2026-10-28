@@ -3,14 +3,56 @@
   "product": "2026-10-06-scattered-spider-actor-profile",
   "mode": "claim",
   "sources": [
-    {"id": "S1", "publisher": "CISA", "derived_from": []},
-    {"id": "S2", "publisher": "MITRE ATT&CK", "derived_from": ["S1"]},
-    {"id": "S3", "publisher": "Google Threat Intelligence", "derived_from": []},
-    {"id": "S4", "publisher": "Google Threat Intelligence", "derived_from": []},
-    {"id": "S5", "publisher": "Infosecurity Magazine", "derived_from": []},
-    {"id": "S6", "publisher": "BleepingComputer", "derived_from": []},
-    {"id": "S7", "publisher": "SC Media", "derived_from": []},
-    {"id": "S8", "publisher": "Computer Weekly", "derived_from": []}
+    {
+      "id": "S1",
+      "publisher": "CISA",
+      "derived_from": [],
+      "ref": "1"
+    },
+    {
+      "id": "S2",
+      "publisher": "MITRE ATT&CK",
+      "derived_from": [
+        "S1"
+      ],
+      "ref": "2"
+    },
+    {
+      "id": "S3",
+      "publisher": "Google Threat Intelligence",
+      "derived_from": [],
+      "ref": "3"
+    },
+    {
+      "id": "S4",
+      "publisher": "Google Threat Intelligence",
+      "derived_from": [],
+      "ref": "4"
+    },
+    {
+      "id": "S5",
+      "publisher": "Infosecurity Magazine",
+      "derived_from": [],
+      "ref": "5"
+    },
+    {
+      "id": "S6",
+      "publisher": "BleepingComputer",
+      "derived_from": [],
+      "ref": "6"
+    },
+    {
+      "id": "S7",
+      "publisher": "SC Media",
+      "derived_from": [],
+      "ref": "7"
+    },
+    {
+      "id": "S8",
+      "publisher": "Computer Weekly",
+      "derived_from": [],
+      "ref": "8"
+    }
   ],
   "claims": [
     {
@@ -21,7 +63,12 @@
       "type": "factual",
       "confidence": "moderate",
       "probability": null,
-      "sources": [{"id": "S2", "direct": true}]
+      "sources": [
+        {
+          "id": "S2",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SS-02",
@@ -31,7 +78,16 @@
       "type": "factual",
       "confidence": "moderate",
       "probability": null,
-      "sources": [{"id": "S1", "direct": true}, {"id": "S2", "direct": true}]
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        },
+        {
+          "id": "S2",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SS-03",
@@ -41,7 +97,12 @@
       "type": "factual",
       "confidence": "moderate",
       "probability": null,
-      "sources": [{"id": "S1", "direct": true}]
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SS-04",
@@ -51,7 +112,12 @@
       "type": "factual",
       "confidence": "moderate",
       "probability": null,
-      "sources": [{"id": "S1", "direct": true}]
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SS-05",
@@ -61,7 +127,16 @@
       "type": "factual",
       "confidence": "high",
       "probability": null,
-      "sources": [{"id": "S2", "direct": true}, {"id": "S3", "direct": true}]
+      "sources": [
+        {
+          "id": "S2",
+          "direct": true
+        },
+        {
+          "id": "S3",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SS-06",
@@ -71,7 +146,16 @@
       "type": "factual",
       "confidence": "moderate",
       "probability": null,
-      "sources": [{"id": "S1", "direct": true}, {"id": "S2", "direct": true}]
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        },
+        {
+          "id": "S2",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SS-07",
@@ -81,7 +165,16 @@
       "type": "estimative",
       "confidence": "moderate",
       "probability": "likely",
-      "sources": [{"id": "S3", "direct": true}, {"id": "S4", "direct": true}]
+      "sources": [
+        {
+          "id": "S3",
+          "direct": true
+        },
+        {
+          "id": "S4",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SS-08",
@@ -91,7 +184,12 @@
       "type": "estimative",
       "confidence": "moderate",
       "probability": "likely",
-      "sources": [{"id": "S5", "direct": true}]
+      "sources": [
+        {
+          "id": "S5",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SS-09",
@@ -101,7 +199,20 @@
       "type": "estimative",
       "confidence": "low",
       "probability": "roughly_even",
-      "sources": [{"id": "S6", "direct": true}, {"id": "S7", "direct": true}, {"id": "S8", "direct": true}]
+      "sources": [
+        {
+          "id": "S6",
+          "direct": true
+        },
+        {
+          "id": "S7",
+          "direct": true
+        },
+        {
+          "id": "S8",
+          "direct": true
+        }
+      ]
     },
     {
       "id": "SS-10",
@@ -111,7 +222,16 @@
       "type": "estimative",
       "confidence": "low",
       "probability": "unlikely",
-      "sources": [{"id": "S6", "direct": true}, {"id": "S7", "direct": true}]
+      "sources": [
+        {
+          "id": "S6",
+          "direct": true
+        },
+        {
+          "id": "S7",
+          "direct": true
+        }
+      ]
     }
   ]
 }

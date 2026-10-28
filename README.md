@@ -68,6 +68,10 @@ ceiling is then per hypothesis, computed in `mode="ach"` from diagnostic evidenc
 independent sources. Both shapes can share one file — the ACH product uses one for its
 identity question and one claim block for the mechanism it observed.
 
+The table in a product is a **view** of its registry. `scripts/render_claims.py` regenerates
+it between `<!-- claims:begin -->` and `<!-- claims:end -->`, and CI runs it with `--check`:
+editing the registry without regenerating the table fails the build.
+
 `scripts/selftest.py` proves the three rejections: a grade above the ceiling, a derived
 source counted twice, and a derivation cycle.
 

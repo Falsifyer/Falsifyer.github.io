@@ -76,6 +76,7 @@ name (§3).
 
 ## 2. Assessment ledger
 
+<!-- claims:begin -->
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
 | PRC state-sponsored, active since at least 2021 | Moderate | n/a | [1][3] |
@@ -89,6 +90,7 @@ name (§3).
 | Reached Stage 2 of the ICS Cyber Kill Chain in 2025 (engineering workstations, cellular gateways) | Moderate | n/a | [7] |
 | Operated by the PLA Cyberspace Force | Low | n/a | [11] |
 | Dragos's VOLTZITE is the same actor as Volt Typhoon | Low | roughly even chance | [3][7] · [ACH](/ach-voltzite-volt-typhoon/) |
+<!-- claims:end -->
 
 ## 3. Tradecraft
 
