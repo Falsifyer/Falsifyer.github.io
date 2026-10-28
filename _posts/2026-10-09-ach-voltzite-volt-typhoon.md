@@ -9,7 +9,7 @@ categories: threat-intelligence
 |---|---|
 | **Product** | Assessment (structured technique: ACH) |
 | **Handling** | TLP:CLEAR — open sources only |
-| **Version** | 1.2 (2026-10-28) |
+| **Version** | 1.3 (2026-10-28) |
 | **Review trigger** | A vendor or government statement that asserts or denies identity; a new joint advisory |
 | **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
@@ -103,6 +103,26 @@ prediction about *where* the overlap comes from.
 2. That they are the **same organisational unit** (H1) — **unlikely** (~20–45%).
 3. That the overlap is at least partly **brokered** (H3) — **roughly even chance**, **low confidence**.
 
+## Sensitivity — how much of this is the prior?
+
+Two numbers decide H1, and neither is measured.
+
+**The prior.** Before the evidence, the odds that two vendor cryptonyms for the same activity are one
+organisational unit are close to even: renames are common, splits are common, and nothing here
+establishes which this is.
+
+**The discriminant.** The evidence that moves H1 is not about the actor. E1, E4 and E9 are one
+observation — no vendor asserts identity — repeated three times, and it is evidence about what
+vendors are willing to say. Counted once, it is weak. Counted three times, the matrix overweights it.
+
+That is why the band is wide. The strongest documentary evidence that exists today is an alias list —
+CISA records VOLTZITE among Volt Typhoon's aliases (E3, E10) — which is the weakest form of an
+identity claim, and the matrix already counts it. An explicit statement that they are one unit, or
+published infrastructure or code establishing a shared operator, would move H1 across 50% on its own.
+If the prior were 30% rather than even, no combination of the current evidence would lift H1 out of
+"unlikely". A reader who disagrees with the prior should disagree with the band — the matrix is the
+same either way, and that is the honest state of the question.
+
 ## What would break the tie
 
 - A government or vendor statement that explicitly **asserts or denies identity**.
@@ -145,3 +165,4 @@ full source list and the unreferenced entries.
 | 1.0 | 2026-10-09 | First release. |
 | 1.1 | 2026-10-28 | Handling corrected from the retired TLP 1.0 label to `TLP:CLEAR`, now checked in CI. The Volt Typhoon profile's identity row was aligned to this product's judgement. The matrix, the hypotheses and the judgement are unchanged. |
 | 1.2 | 2026-10-28 | Citation corrected: the SYLVANITE handoff (E7) is a Dragos observation, not an ATT&CK record. The matrix, the hypotheses and the judgement are unchanged. |
+| 1.3 | 2026-10-28 | Added a sensitivity paragraph: H1 rests on a prior near even and one weak observation repeated three times; one documentary event would move it across 50%. The matrix and the judgement are unchanged. |
