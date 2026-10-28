@@ -25,6 +25,16 @@
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  {% if page.collection == "posts" %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"datePublished":{{ page.date | date_to_xmlschema | jsonify }},"author":{"@type":"Person","name":{{ site.author | jsonify }}},"mainEntityOfPage":{{ page.url | absolute_url | jsonify }}}
+  </script>
+  {% else %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":{{ site.title | jsonify }},"url":{{ "/" | absolute_url | jsonify }},"description":{{ site.description | jsonify }},"author":{"@type":"Person","name":{{ site.author | jsonify }},"url":"https://github.com/Falsifyer"}}
+  </script>
+  {% endif %}
 </head>
 <body class="{% if page.collection == 'posts' %}is-post{% elsif page.url == '/' %}is-home{% else %}is-page{% endif %}">
 
@@ -44,7 +54,7 @@
             <a href="{{ doc.url | relative_url }}"{% if page.url == doc.url %} aria-current="page"{% endif %}>{{ doc.title | default: doc.name }}</a>
           {% endif %}
         {% endfor %}
-        <a href="https://github.com/Falsifyer" rel="me">GitHub</a>
+        <a class="nav-github" href="https://github.com/Falsifyer" rel="me">GitHub</a>
       </nav>
     </div>
   </header>

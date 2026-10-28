@@ -28,21 +28,19 @@ layout: default
       {% for post in products %}
       {% assign summary = post.summary | default: "" %}
       <li class="card">
-        <a class="card-link" href="{{ post.url | relative_url }}">
-          <p class="card-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-            {% if post.kind %}<span class="dot" aria-hidden="true">·</span>{{ post.kind }}{% endif %}
-          </p>
-          <h3 class="card-title">{{ post.title }}</h3>
-          {% if summary != "" %}<p class="card-summary">{{ summary }}</p>{% endif %}
-          {% assign key = post.path | split: "/" | last | remove: ".md" %}
-          {% assign reg = site.data.claims[key] %}
-          {% assign n = 0 %}
-          {% for item in reg.claims %}{% assign n = n | plus: item.triggers.size %}{% endfor %}
-          {% for item in reg.judgements %}{% assign n = n | plus: item.triggers.size %}{% endfor %}
-          {% if n > 0 %}<p class="card-falsifier"><span class="card-falsifier-label">{{ n }} falsification conditions</span>in the {% if register %}<a href="{{ register.url | relative_url }}">register</a>{% else %}register{% endif %}</p>{% endif %}
-          <span class="card-more">Read the product <span aria-hidden="true">→</span></span>
-        </a>
+        <p class="card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          {% if post.kind %}<span class="dot" aria-hidden="true">·</span>{{ post.kind }}{% endif %}
+        </p>
+        <h3 class="card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if summary != "" %}<p class="card-summary">{{ summary }}</p>{% endif %}
+        {% assign key = post.path | split: "/" | last | remove: ".md" %}
+        {% assign reg = site.data.claims[key] %}
+        {% assign n = 0 %}
+        {% for item in reg.claims %}{% assign n = n | plus: item.triggers.size %}{% endfor %}
+        {% for item in reg.judgements %}{% assign n = n | plus: item.triggers.size %}{% endfor %}
+        {% if n > 0 %}<p class="card-falsifier"><span class="card-falsifier-label">{{ n }} falsification conditions</span>in the {% if register %}<a href="{{ register.url | relative_url }}">register</a>{% else %}register{% endif %}</p>{% endif %}
+        <span class="card-more" aria-hidden="true">Read the product <span>→</span></span>
       </li>
       {% endfor %}
     </ol>

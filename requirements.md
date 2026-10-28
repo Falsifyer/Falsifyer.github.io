@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Requirements
+kicker: "Direction"
+description: "The standing questions this site is asked to answer, decomposed into essential elements of information, collection and the gaps that remain."
 permalink: /requirements/
 ---
 

@@ -1,6 +1,8 @@
 ---
 layout: page
 title: About
+kicker: "Who"
+description: "Falsifyer is the working name of one analyst writing open-source threat intelligence: what he covers, how he works, and where to find him."
 permalink: /about/
 ---
 

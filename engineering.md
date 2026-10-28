@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Engineering
+kicker: "Tooling"
+description: "The intelligence method encoded as tools: a PIR tied to a decision, alias adjudication, graded assessment ledgers, falsifiable hunt plans, STIX output and a TLP gate."
 permalink: /engineering/
 ---
 

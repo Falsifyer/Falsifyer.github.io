@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Method
+kicker: "Standard"
+description: "How the analysis is produced, graded and corrected: confidence and probability on separate axes, review triggers with expiry, and judgements that change by version."
 permalink: /method/
 ---
 
