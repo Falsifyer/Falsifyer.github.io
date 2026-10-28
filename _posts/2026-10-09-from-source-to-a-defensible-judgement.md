@@ -74,7 +74,7 @@ evidence, its confidence, and a statement of what would change it. The
 ## The numbers
 
 The suite is public and MIT-licensed, and it runs in CI:
-[github.com/ME0094/cti-suite](https://github.com/ME0094/cti-suite). I don't copy test counts into
+[github.com/Falsifyer/Defensible-CTI](https://github.com/Falsifyer/Defensible-CTI). I don't copy test counts into
 prose — a number in a blog post goes stale, and the whole point of the tooling is that the claim can
 be checked at source. What the CI checks:
 

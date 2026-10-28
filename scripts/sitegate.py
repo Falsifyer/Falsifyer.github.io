@@ -146,7 +146,7 @@ def main(argv: list[str] | None = None) -> int:
     except ImportError as exc:
         print(f"sitegate: cannot check: {exc} importable from {suite}", file=sys.stderr)
         print(
-            "  clone it first: git clone --depth 1 https://github.com/ME0094/cti-suite _suite",
+            "  clone it first: git clone --depth 1 https://github.com/Falsifyer/Defensible-CTI _suite",
             file=sys.stderr,
         )
         return 2

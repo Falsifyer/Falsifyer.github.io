@@ -1,6 +1,6 @@
-# me0094.github.io
+# falsifyer.github.io
 
-Source of <https://me0094.github.io>: cyber threat intelligence products — adversary profiles,
+Source of <https://falsifyer.github.io>: cyber threat intelligence products — adversary profiles,
 structured assessments, and the method and requirements behind them.
 
 ## What it is
@@ -36,7 +36,7 @@ $ jekyll serve
 Two workflows run on every push. `ci.yml` builds the site with Jekyll and fails if a page the header
 links to is missing. `sitegate.yml` runs the site's own gate against the products:
 
-- **handling** — the TLP rules, delegated to [`sharegate`](https://github.com/ME0094/cti-suite);
+- **handling** — the TLP rules, delegated to [`sharegate`](https://github.com/Falsifyer/Defensible-CTI);
 - **versioning** — a version in the product header must exist in its revision history;
 - **freshness** — a product past its next review date fails;
 - **vocabulary** — confidence and probability come from the declared lexicons;
@@ -45,7 +45,7 @@ links to is missing. `sitegate.yml` runs the site's own gate against the product
 To run the gate locally, put the suite beside the site:
 
 ```console
-$ git clone --depth 1 --branch cti-method-v0.2.0 https://github.com/ME0094/cti-suite _suite
+$ git clone --depth 1 --branch cti-method-v0.2.0 https://github.com/Falsifyer/Defensible-CTI _suite
 $ python3 scripts/sitegate.py
 ```
 

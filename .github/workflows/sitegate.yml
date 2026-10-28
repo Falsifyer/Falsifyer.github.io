@@ -16,7 +16,7 @@ jobs:
       - name: Check out the gate (cti-suite)
         uses: actions/checkout@v4
         with:
-          repository: ME0094/cti-suite
+          repository: Falsifyer/Defensible-CTI
           ref: cti-method-v0.2.0
           path: _suite
 

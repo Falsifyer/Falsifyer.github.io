@@ -18,7 +18,7 @@ requirement (`pir`) → judgement (`cryptonym`) → ledger (`assessment`) → hu
 (`huntplan`) → STIX product (`stixforge`) → gate (`sharegate`). One command runs the six
 in order on fictional data, which is also the regression test.
 
-The suite is public and MIT-licensed: [github.com/ME0094/cti-suite](https://github.com/ME0094/cti-suite),
+The suite is public and MIT-licensed: [github.com/Falsifyer/Defensible-CTI](https://github.com/Falsifyer/Defensible-CTI),
 with its tests and CI runs. The corpus it is evaluated against stays private; the code that
 applies the method does not.
 
@@ -50,7 +50,7 @@ disagreement is recorded as contested, not resolved by fiat.
 **Evidence.** An adjudicated corpus with a committed coverage baseline; STIX 2.1 output
 validated against the reference library in CI. The test count is reported by CI rather than
 copied here, because a number in prose goes stale: see the
-[workflow runs](https://github.com/ME0094/cti-suite/actions).
+[workflow runs](https://github.com/Falsifyer/Defensible-CTI/actions).
 
 ## assessment — a ledger of graded judgements
 
