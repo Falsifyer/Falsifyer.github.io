@@ -51,6 +51,21 @@ $ python3 scripts/sitegate.py
 
 A contradiction between products is a build failure, not a reader's discovery.
 
+## Claims
+
+A product with a machine-readable ledger carries it in `_data/claims/<slug>.json`: the
+claim, its id and stable key, its class and type, the declared confidence and probability,
+and the sources — with `derived_from` for independence and `direct` for whether a source
+bears on the claim itself.
+
+The grade is not taken on trust. `sitegate` calls
+`cti_method.grading.ceiling(..., mode="claim")` — the ceiling lives in the suite, not here —
+and refuses a declared confidence above what the evidence supports. Two reports from one
+publisher, or a source derived from another present, count as one voice.
+
+`scripts/selftest.py` proves the three rejections: a grade above the ceiling, a derived
+source counted twice, and a derivation cycle.
+
 ## Method
 
 Every claim carries its source and is graded on two independent axes, confidence and probability, per

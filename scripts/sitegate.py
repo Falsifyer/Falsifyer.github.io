@@ -117,12 +117,14 @@ def check_product(path: Path, today: date) -> tuple[list[str], dict[str, tuple[s
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--posts", type=Path, default=None)
+    parser.add_argument("--claims", type=Path, default=None, help="directory of claim registries")
     parser.add_argument("--suite", type=Path, default=None, help="path to a cti-suite checkout")
     parser.add_argument("--today", type=str, default=None, help="override the date (tests)")
     args = parser.parse_args(argv)
 
     root = Path(__file__).resolve().parent.parent
     posts = args.posts or root / "_posts"
+    claims_dir = args.claims or root / "_data" / "claims"
     products = sorted(posts.glob("*.md"))
     if not products:
         print(f"sitegate: cannot check: no products in {posts}", file=sys.stderr)
@@ -130,8 +132,8 @@ def main(argv: list[str] | None = None) -> int:
 
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     try:
-        from check_handling import check_product as check_handling
         from check_handling import add_suite_to_path
+        from check_handling import check_product as check_handling
     except ImportError as exc:
         print(f"sitegate: cannot check: {exc}", file=sys.stderr)
         return 2
@@ -139,11 +141,19 @@ def main(argv: list[str] | None = None) -> int:
     suite = args.suite or root / "_suite"
     add_suite_to_path(suite)
     try:
+        import claims as registry
         from sharegate.core import check_tlp  # noqa: F401
     except ImportError as exc:
-        print(f"sitegate: cannot check: sharegate not importable from {suite} ({exc})", file=sys.stderr)
+        print(f"sitegate: cannot check: {exc} importable from {suite}", file=sys.stderr)
         print(
             "  clone it first: git clone --depth 1 https://github.com/ME0094/cti-suite _suite",
+            file=sys.stderr,
+        )
+        return 2
+    if claims_dir.is_dir() and not registry.suite_supports_claim_mode():
+        print(
+            f"sitegate: cannot check: {suite} predates claim mode; "
+            "claim registries need cti-method >= 0.2.0",
             file=sys.stderr,
         )
         return 2
@@ -157,6 +167,14 @@ def main(argv: list[str] | None = None) -> int:
         blocking, claims = check_product(product, today)
         handling, advisory = check_handling(product, check_tlp)
         blocking += handling
+
+        document, _ = registry.load_for(product.stem, claims_dir)
+        if document is not None:
+            reg_blocking, reg_advisory, reg_claims = registry.check(document, product.stem)
+            blocking += reg_blocking
+            advisory += reg_advisory
+            claims.update(reg_claims)
+            advisory.append(f"registry: {len(reg_claims)} claim(s) checked against the suite's ceiling")
 
         for key, (confidence, probability, claim) in claims.items():
             if key in seen:

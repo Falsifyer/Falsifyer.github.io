@@ -8,6 +8,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - `scripts/sitegate.py` and its workflow: handling (through `sharegate`), versioning, freshness,
   grading vocabulary and cross-product consistency, with two negative fixtures that must fail.
+- Claim registries (`_data/claims/<slug>.json`) graded by the suite's ceiling, with a self-test
+  for the three rejection cases.
 - "The broker is the actor you can see": an access-layer assessment with a validated hunt plan in
   `hunts/sylvanite-handoff.json`.
 
