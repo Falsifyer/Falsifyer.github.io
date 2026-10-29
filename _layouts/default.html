@@ -63,7 +63,6 @@
     {{ content }}
   </main>
 
-  {% assign register = site.posts | where: "kind", "Register" | first %}
   <footer class="footer">
     <div class="wrap footer-inner">
       <div class="footer-brand">
@@ -73,8 +72,6 @@
       <div class="footer-meta">
         <p>Every judgement here carries its confidence and probability, and states what would overturn it.</p>
         <p class="mono">
-          <a href="{{ register.url | relative_url }}">Falsification</a>
-          <span aria-hidden="true">·</span>
           <a href="{{ '/method/' | relative_url }}#versioning-and-corrections">Corrections</a>
           <span aria-hidden="true">·</span>
           <a href="{{ '/feed.xml' | relative_url }}">Feed</a>

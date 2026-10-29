@@ -2,7 +2,6 @@
 layout: default
 ---
 {% assign products = site.posts %}
-{% assign register = site.posts | where: "kind", "Register" | first %}
 <section class="hero">
   <div class="wrap">
     <p class="kicker"><span class="kicker-rule" aria-hidden="true"></span>Open-source threat intelligence · {{ site.time | date: "%Y" }}</p>
@@ -34,12 +33,6 @@ layout: default
         </p>
         <h3 class="card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         {% if summary != "" %}<p class="card-summary">{{ summary }}</p>{% endif %}
-        {% assign key = post.path | split: "/" | last | remove: ".md" %}
-        {% assign reg = site.data.claims[key] %}
-        {% assign n = 0 %}
-        {% for item in reg.claims %}{% assign n = n | plus: item.triggers.size %}{% endfor %}
-        {% for item in reg.judgements %}{% assign n = n | plus: item.triggers.size %}{% endfor %}
-        {% if n > 0 %}<p class="card-falsifier"><span class="card-falsifier-label">{{ n }} falsification conditions</span>in the {% if register %}<a href="{{ register.url | relative_url }}">register</a>{% else %}register{% endif %}</p>{% endif %}
         <span class="card-more" aria-hidden="true">Read the product <span>→</span></span>
       </li>
       {% endfor %}
@@ -65,12 +58,6 @@ layout: default
         </li>
         {% endif %}
       {% endfor %}
-      <li class="link-item">
-        <a href="{{ register.url | relative_url }}">
-          <span class="link-title">Falsification register</span>
-          <span class="link-arrow" aria-hidden="true">↗</span>
-        </a>
-      </li>
     </ul>
   </div>
 </section>

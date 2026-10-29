@@ -13,6 +13,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - "The broker is the actor you can see": an access-layer assessment with a validated hunt plan in
   `hunts/sylvanite-handoff.json`.
 
+### Removed
+
+- The falsification register (`/falsification-register/` and its `/falsification/` redirect):
+  the aggregate page and the script that generated it. Review triggers stay in each product and
+  in their claim registries.
+
 ### Changed
 
 - All four existing products: handling moved to TLP 2.0 (`TLP:CLEAR`) and a next-review date added.

@@ -84,16 +84,15 @@ source counted twice, and a derivation cycle.
 
 ## Generated blocks, and the kramdown trap
 
-Two regions are rewritten in place: the assessment tables (`scripts/render_claims.py`) and the
-falsification register (`scripts/render_falsification.py`). Both are checked in CI, so a table
-that drifts from its registry fails the build.
+One region is rewritten in place: the assessment tables (`scripts/render_claims.py`). CI checks
+it, so a table that drifts from its registry fails the build.
 
 **A marker must never be a standalone HTML comment line.** kramdown opens an HTML block on one,
 and a GFM table that follows it — even after a blank line and a paragraph — is published as
 text, pipes and all:
 
 ```
-<!-- register:begin -->
+<!-- claims:begin -->
 
 A lede paragraph.
 
@@ -104,7 +103,7 @@ A lede paragraph.
 Put the opening marker at the end of the paragraph that precedes the block:
 
 ```
-A lede paragraph. <!-- register:begin -->
+A lede paragraph. <!-- claims:begin -->
 
 | Product | Claim |
 |---|---|

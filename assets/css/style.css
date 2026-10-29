@@ -373,8 +373,8 @@ body.is-post .post-body > table:first-of-type > thead { display: none; }
 .post-body tbody tr:hover { background: var(--paper-alt); }
 .post-body td:last-child, .post-body th:last-child { padding-right: .2rem; }
 
-/* Wide tables (the falsification register) break out of the reading column:
-   six columns of prose do not fit in 68 characters. */
+/* Wide tables (e.g. the ACH evidence matrix) break out of the reading column:
+   five columns of prose do not fit in 68 characters. */
 .post-body > table:has(> thead > tr > th:nth-child(5)) {
   max-width: none;
   width: min(1140px, calc(100vw - 2.6rem));
