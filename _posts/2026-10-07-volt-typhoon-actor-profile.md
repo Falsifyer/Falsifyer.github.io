@@ -243,7 +243,7 @@ What to look for, not a validated ruleset (consistent with the rule-provenance p
 
 1. CISA, NSA, FBI and international partners — **Joint Cybersecurity Advisory AA24-038A: PRC
    State-Sponsored Actors Compromise and Maintain Persistent Access to U.S. Critical Infrastructure**
-   (7 Feb 2024). https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a
+   (7 Feb 2024). <https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a>
 2. CISA, NSA, FBI and partners — **Joint Cybersecurity Advisory AA23-144A: PRC State-Sponsored
    Cyber Actor Living off the Land to Evade Detection** (24 May 2023).
    <https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-144a>
@@ -252,7 +252,7 @@ What to look for, not a validated ruleset (consistent with the rule-provenance p
 4. Microsoft Threat Intelligence — **Volt Typhoon (VANGUARD PANDA)**.
    <https://www.microsoft.com/en-us/security/security-insider/threat-landscape/volt-typhoon>
 5. CISA, NSA and partners — **Identifying and Mitigating Living Off the Land Techniques** (joint
-   guidance, Feb 2024). https://www.cisa.gov/resources-tools/resources/identifying-and-mitigating-living-land-techniques
+   guidance, Feb 2024). <https://www.cisa.gov/resources-tools/resources/identifying-and-mitigating-living-land-techniques>
 6. U.S. Department of Justice — **U.S. Government Disrupts Botnet PRC Used to Conceal Hacking of
    Critical Infrastructure** (31 Jan 2024).
    <https://www.justice.gov/opa/pr/us-government-disrupts-botnet-peoples-republic-china-used-conceal-hacking-critical>
@@ -264,7 +264,7 @@ What to look for, not a validated ruleset (consistent with the rule-provenance p
    Lumen Black Lotus Labs' exploitation report.
    <https://attack.mitre.org/campaigns/C0039>
 10. Palo Alto Networks Unit 42 — **Threat Brief: Attacks on Critical Infrastructure Attributed to
-    Insidious Taurus (Volt Typhoon)** (Feb 2024). https://unit42.paloaltonetworks.com/volt-typhoon-threat-brief/
+    Insidious Taurus (Volt Typhoon)** (Feb 2024). <https://unit42.paloaltonetworks.com/volt-typhoon-threat-brief/>
 11. Public reporting on unit-level attribution of the group (secondary source; treated as low
     confidence).
 12. Dragos — **SYLVANITE** threat group page (accessed 28 Oct 2026). Records the group since 2023,
