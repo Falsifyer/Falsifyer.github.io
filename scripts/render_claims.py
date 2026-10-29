@@ -6,6 +6,11 @@ Jekyll plugin, which GitHub Pages does not run — keeps the site static and sti
 two unable to drift: `--check` fails when the file on disk differs from what the registry
 would produce.
 
+The opening marker must not be left as a standalone HTML block: kramdown stops
+parsing a GFM table after one, and the table is published as text. Keep it at the end of
+the preceding text block, with a blank line before the table; the CI job checks the built
+page for a literal pipe header.
+
 The block to replace is delimited by ``<!-- claims:begin -->`` and ``<!-- claims:end -->``.
 """
 
