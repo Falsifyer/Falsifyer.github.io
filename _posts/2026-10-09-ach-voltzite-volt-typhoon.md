@@ -76,14 +76,14 @@ Only one item discriminates, and it points both ways: the government lists the n
 vendors decline to. That is not enough to separate A1 from A2, and it is not enough to exclude A3 on
 open sources either.
 
-### Assessment ledger
+### Assessment ledger <!-- claims:begin -->
 
-<!-- claims:begin -->
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
 | Dragos's VOLTZITE is the same actor as Volt Typhoon | Low | roughly even chance | [1][3][7][12] |
 | The clusters are distinct but related | Low | roughly even chance | [1][3][7][12] |
 | The clusters are unrelated | Low | very unlikely | [1][10] |
+
 <!-- claims:end -->
 
 Both leading hypotheses are `low` because **nothing diagnostic exists in public**: the ceiling is set

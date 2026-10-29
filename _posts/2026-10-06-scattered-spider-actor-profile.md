@@ -68,9 +68,8 @@ analysis notes that the shared 0ktapus phishing kit was reused by multiple actor
 assessments go as far as treating Muddled Libra as a distinct cluster despite overlapping tradecraft.
 Read the aliases as an **overlapping cluster, not a verified single identity** [2][9].
 
-## 2. Assessment ledger
+## 2. Assessment ledger <!-- claims:begin -->
 
-<!-- claims:begin -->
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
 | Native-English-speaking, active since at least 2022 | Moderate | n/a | [2] |
@@ -83,6 +82,7 @@ Read the aliases as an **overlapping cluster, not a verified single identity** [
 | 2025 arrests slowed the group | Moderate | likely | [5] |
 | Scattered Lapsus$ Hunters is Scattered Spider plus Lapsus$ plus ShinyHunters | Low | roughly even chance | [6][7][8] |
 | The ~1 billion-record Salesforce claim | Low | unlikely | [6][7] |
+
 <!-- claims:end -->
 
 ## 3. Tradecraft

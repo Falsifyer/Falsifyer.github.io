@@ -39,3 +39,12 @@ jobs:
           test -f "_site/from-source-to-a-defensible-judgement/index.html"
           test -f "_site/sylvanite-access-layer/index.html"
           test -f "_site/hunts/sylvanite-handoff.json"
+
+      - name: Las tablas generadas se renderizan como tablas
+        run: |
+          for ruta in scattered-spider-actor-profile volt-typhoon-actor-profile ach-voltzite-volt-typhoon sylvanite-access-layer; do
+            grep -q "<table" "_site/$ruta/index.html" || { echo "::error::$ruta no tiene tabla"; exit 1; }
+            if grep -q "| Assessment | Confidence" "_site/$ruta/index.html"; then
+              echo "::error::$ruta publicó su tabla como texto (marcador HTML suelto)"; exit 1
+            fi
+          done
