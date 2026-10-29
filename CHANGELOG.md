@@ -1,4 +1,8 @@
-# Changelog
+---
+layout: page
+title: "Changelog"
+sitemap: false
+---
 
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
@@ -22,6 +26,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   203/208.
 - Engineering: hand-copied test counts replaced by CI; `huntplan` described in terms of detection
   strategies, not the retired data sources.
+
+### Fixed
+
+- Engineering: the paragraph introducing the suite was published twice.
+- Changelog: no longer listed in the sitemap as a product page, and it renders a single `h1`
+  instead of two.
 
 ## 1.0.0 — 2026-10-22
 

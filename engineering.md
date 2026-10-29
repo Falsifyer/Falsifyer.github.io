@@ -15,11 +15,6 @@ requirement (`pir`) → judgement (`cryptonym`) → ledger (`assessment`) → hu
 (`huntplan`) → STIX product (`stixforge`) → gate (`sharegate`). One command runs the six in
 order on fictional data, which is also the regression test.
 
-They are now one suite of six commands in one workspace, running as a single chain:
-requirement (`pir`) → judgement (`cryptonym`) → ledger (`assessment`) → hunt plan
-(`huntplan`) → STIX product (`stixforge`) → gate (`sharegate`). One command runs the six
-in order on fictional data, which is also the regression test.
-
 The suite is public and MIT-licensed: [github.com/Falsifyer/Defensible-CTI](https://github.com/Falsifyer/Defensible-CTI),
 with its tests and CI runs. The corpus it is evaluated against stays private; the code that
 applies the method does not.
