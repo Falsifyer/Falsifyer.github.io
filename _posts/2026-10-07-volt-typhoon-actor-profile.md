@@ -4,6 +4,7 @@ title: "Volt Typhoon: an actor profile built from open sources"
 date: 2026-10-07
 categories: threat-intelligence
 summary: "A living-off-the-land intrusion tracked from open sources, graded claim by claim, with the attribution kept to what the evidence carries and no further."
+description: "A graded profile of the PRC-linked actor: living-off-the-land tradecraft, SOHO proxying and pre-positioning for OT disruption."
 kind: "Actor profile"
 ---
 
@@ -76,7 +77,7 @@ OT reporting as an **overlapping cluster**, not a single verified entity [3][7].
 applies one layer down: the access cluster that feeds this actor is itself a set of names, not a
 name (§3).
 
-## 2. Assessment ledger <!-- claims:begin -->
+## 2. Assessment ledger<!-- claims:begin -->
 
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
@@ -245,33 +246,33 @@ What to look for, not a validated ruleset (consistent with the rule-provenance p
    (7 Feb 2024). https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a
 2. CISA, NSA, FBI and partners — **Joint Cybersecurity Advisory AA23-144A: PRC State-Sponsored
    Cyber Actor Living off the Land to Evade Detection** (24 May 2023).
-   https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-144a
+   <https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-144a>
 3. MITRE ATT&CK — **Group G1017: Volt Typhoon** (v2.0, last modified 31 Jul 2026).
-   https://attack.mitre.org/groups/G1017
+   <https://attack.mitre.org/groups/G1017>
 4. Microsoft Threat Intelligence — **Volt Typhoon (VANGUARD PANDA)**.
-   https://www.microsoft.com/en-us/security/security-insider/threat-landscape/volt-typhoon
+   <https://www.microsoft.com/en-us/security/security-insider/threat-landscape/volt-typhoon>
 5. CISA, NSA and partners — **Identifying and Mitigating Living Off the Land Techniques** (joint
    guidance, Feb 2024). https://www.cisa.gov/resources-tools/resources/identifying-and-mitigating-living-land-techniques
 6. U.S. Department of Justice — **U.S. Government Disrupts Botnet PRC Used to Conceal Hacking of
    Critical Infrastructure** (31 Jan 2024).
-   https://www.justice.gov/opa/pr/us-government-disrupts-botnet-peoples-republic-china-used-conceal-hacking-critical
+   <https://www.justice.gov/opa/pr/us-government-disrupts-botnet-peoples-republic-china-used-conceal-hacking-critical>
 7. Dragos — **OT/ICS Cybersecurity Report 2026: Year in Review** (17 Feb 2026).
-   https://www.dragos.com/resources/press-release/dragos-2026-year-in-review-new-ot-threats-ransomware
+   <https://www.dragos.com/resources/press-release/dragos-2026-year-in-review-new-ot-threats-ransomware>
 8. Dragos — **OT/ICS Cybersecurity Report 2025: Year in Review** (25 Feb 2025).
-   https://www.dragos.com/resources/press-release/dragos-reports-ot-ics-cyber-threats-escalate-amid-geopolitical-conflicts-and-increasing-ransomware-attacks
+   <https://www.dragos.com/resources/press-release/dragos-reports-ot-ics-cyber-threats-escalate-amid-geopolitical-conflicts-and-increasing-ransomware-attacks>
 9. MITRE ATT&CK — **Campaign C0039: Versa Director Zero Day Exploitation** (June–August 2024), and
    Lumen Black Lotus Labs' exploitation report.
-   https://attack.mitre.org/campaigns/C0039
+   <https://attack.mitre.org/campaigns/C0039>
 10. Palo Alto Networks Unit 42 — **Threat Brief: Attacks on Critical Infrastructure Attributed to
     Insidious Taurus (Volt Typhoon)** (Feb 2024). https://unit42.paloaltonetworks.com/volt-typhoon-threat-brief/
 11. Public reporting on unit-level attribution of the group (secondary source; treated as low
     confidence).
 12. Dragos — **SYLVANITE** threat group page (accessed 28 Oct 2026). Records the group since 2023,
     the observed handoff to VOLTZITE, and the overlap list.
-    https://www.dragos.com/threat/sylvanite/
+    <https://www.dragos.com/threat/sylvanite/>
 13. MITRE ATT&CK — **Campaign C0029: Cutting Edge** (Ivanti Connect Secure exploitation,
     December 2023 – February 2024; last modified 31 Jul 2026).
-    https://attack.mitre.org/campaigns/C0029
+    <https://attack.mitre.org/campaigns/C0029>
 
 ---
 

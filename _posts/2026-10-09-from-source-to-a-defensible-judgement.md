@@ -4,6 +4,7 @@ title: "From source to a defensible judgement: the method behind the tooling"
 date: 2026-10-09
 categories: threat-intelligence
 summary: "How a judgement earns its confidence, what would overturn it, and the tooling that makes the hard part impossible to skip."
+description: "How a source becomes a defensible judgement: two-axis grading, ACH, a computed ceiling and a corrections loop that leaves a trace."
 kind: "Method note"
 ---
 

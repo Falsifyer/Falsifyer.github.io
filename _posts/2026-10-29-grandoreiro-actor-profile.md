@@ -4,6 +4,7 @@ title: "Grandoreiro: a banking trojan that survived its operators"
 date: 2026-10-29
 categories: threat-intelligence
 summary: "A Brazilian banking trojan run as a service, measured against what the arrests actually changed — and against the question the vendors still answer differently."
+description: "A Brazilian banking trojan run as a service, measured against what the arrests changed — and the operator model the vendors still contest."
 kind: "Malware profile"
 ---
 
@@ -11,7 +12,7 @@ kind: "Malware profile"
 |---|---|
 | **Product** | Malware profile |
 | **Handling** | TLP:CLEAR — open sources only |
-| **Version** | 1.0 (2026-10-29) |
+| **Version** | 1.0.1 (2026-10-29) |
 | **Review trigger** | A conviction, a new distributor, or a vendor resolving the operator model |
 | **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
@@ -37,9 +38,8 @@ substantiated, and is recorded so it is not repeated as fact.
 ## Bottom line
 
 Grandoreiro is a Delphi banking trojan of Brazilian origin, active since at least 2016 and
-operated as a service with the code held closely. The January 2024 arrests removed five
-administrators and did not stop it: campaigns in 2024, 2025 and 2026 are documented by three
-independent vendors, and the codebase split rather than disappeared.
+operated as a service with the code held closely. The January 2024 arrests of five administrators did not stop it: campaigns in 2024, 2025 and
+2026 are documented by three independent vendors, and the codebase split rather than disappeared.
 
 The interesting question is not whether it survived. It is **who runs it now**. IBM counts at
 least three distributors; ESET, looking at the command-and-control backend, argues for one group
@@ -67,7 +67,7 @@ package, and access to the source and builders appears limited to trusted partne
 one of the reasons the operator question below is hard: a closed service and a small criminal
 group look similar from the outside.
 
-## 2. Assessment ledger <!-- claims:begin -->
+## 2. Assessment ledger<!-- claims:begin -->
 
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
@@ -149,8 +149,8 @@ applications in more than 60 countries [4]. The two counts are not reconcilable 
 and the difference is a reminder that these numbers describe a hardcoded list, not observed
 victims.
 
-IBM also documented expansion outside Latin America after the arrests — South Africa, Argentina
-and the Indo-Pacific among the impersonated authorities [4]. Acronis's 2026 telemetry is more
+IBM also documented expansion beyond the historical Brazil–Mexico–Spain core after the arrests
+— South Africa, Argentina and the Indo-Pacific among the impersonated authorities [4]. Acronis's 2026 telemetry is more
 conservative: Mexico accounts for the largest share, Spain and several Latin American countries
 follow, and Europe and North America show only limited presence [6].
 
@@ -236,22 +236,22 @@ What to look for, not a validated ruleset:
 ## Sources
 
 1. INTERPOL — **Disrupting a Grandoreiro malware operation** (18 Mar 2024).
-   https://www.interpol.int/en/News-and-Events/News/2024/Disrupting-a-Grandoreiro-malware-operation
+   <https://www.interpol.int/en/News-and-Events/News/2024/Disrupting-a-Grandoreiro-malware-operation>
 2. ESET Research — **ESET takes part in global operation to disrupt the Grandoreiro banking
    trojan** (30 Jan 2024).
-   https://www.welivesecurity.com/en/eset-research/eset-takes-part-global-operation-disrupt-grandoreiro-banking-trojan/
+   <https://www.welivesecurity.com/en/eset-research/eset-takes-part-global-operation-disrupt-grandoreiro-banking-trojan/>
 3. Kaspersky GReAT — **Grandoreiro, the global trojan with grandiose goals** (22 Oct 2024).
-   https://securelist.com/grandoreiro-banking-trojan/114257/
+   <https://securelist.com/grandoreiro-banking-trojan/114257/>
 4. IBM X-Force — **Grandoreiro banking trojan unleashed: X-Force observing emerging global
    campaigns** (2024).
-   https://www.ibm.com/think/x-force/grandoreiro-banking-trojan-unleashed
+   <https://www.ibm.com/think/x-force/grandoreiro-banking-trojan-unleashed>
 5. IBM X-Force — **Hive0148 observed targeting Mexico and Costa Rica** (2025).
-   https://www.ibm.com/think/x-force/ibm-x-force-threat-analysis-hive0148-observed-targeting-mexico-costa-rica
+   <https://www.ibm.com/think/x-force/ibm-x-force-threat-analysis-hive0148-observed-targeting-mexico-costa-rica>
 6. Acronis TRU — **Grandoreiro goes north: from Brazil to Mexico with a new DLL sideloading
    campaign** (19 Aug 2026).
-   https://www.acronis.com/en/tru/posts/grandoreiro-goes-north-from-brazil-to-mexico-with-a-new-dll-sideloading-campaign/
+   <https://www.acronis.com/en/tru/posts/grandoreiro-goes-north-from-brazil-to-mexico-with-a-new-dll-sideloading-campaign/>
 7. MITRE ATT&CK — **Software S0531: Grandoreiro** (last modified 11 Apr 2024).
-   https://attack.mitre.org/software/S0531
+   <https://attack.mitre.org/software/S0531>
 
 ---
 
@@ -262,3 +262,4 @@ What to look for, not a validated ruleset:
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-29 | First release. |
+| 1.0.1 | 2026-10-29 | Corrected a geographic error: Argentina is in Latin America, so the expansion is beyond the historical core, not outside the region. Also tightened the wording of the arrests. No assessed fact changed. |

@@ -42,143 +42,248 @@
       "ref": "12"
     }
   ],
-  "hypotheses": [
+  "questions": [
     {
-      "id": "A1",
-      "label": "same organisational unit"
-    },
-    {
-      "id": "A2",
-      "label": "distinct units, related"
-    },
-    {
-      "id": "A3",
-      "label": "distinct and unrelated"
-    }
-  ],
-  "evidence": [
-    {
-      "id": "A-i",
-      "statement": "No vendor asserts identity: Dragos says technical overlaps, MITRE records Associated Groups, CISA lists an alias",
-      "type": "linguistic",
-      "source_id": "S7",
-      "reliability": "B",
-      "consistency": {
-        "A1": "0",
-        "A2": "C",
-        "A3": "C"
-      }
-    },
-    {
-      "id": "A-ii",
-      "statement": "CISA lists Voltzite among Volt Typhoon's aliases",
-      "type": "structural",
-      "source_id": "S1",
-      "reliability": "A",
-      "consistency": {
-        "A1": "C",
-        "A2": "0",
-        "A3": "0"
-      }
-    },
-    {
-      "id": "A-iii",
-      "statement": "Same sectors and the same living-off-the-land tradecraft",
-      "type": "tactics",
-      "source_id": "S10",
-      "reliability": "B",
-      "consistency": {
-        "A1": "C",
-        "A2": "C",
-        "A3": "C"
-      }
-    }
-  ],
-  "judgements": [
-    {
-      "hypothesis": "A1",
-      "key": "voltzite.identity",
-      "claim": "Dragos's VOLTZITE is the same actor as Volt Typhoon",
-      "confidence": "low",
-      "probability": "roughly_even",
-      "sources": [
-        "S1",
-        "S3",
-        "S7",
-        "S12"
-      ],
-      "triggers": [
+      "id": "A",
+      "label": "Question A — identity",
+      "hypotheses": [
         {
-          "id": "RT-01",
-          "type": "documentary",
-          "condition": "A statement that asserts or denies identity",
-          "artifact": "Joint advisory or ATT&CK change"
+          "id": "A1",
+          "label": "same organisational unit"
+        },
+        {
+          "id": "A2",
+          "label": "distinct units, related"
+        },
+        {
+          "id": "A3",
+          "label": "distinct and unrelated"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "A-i",
+          "statement": "No vendor asserts identity: Dragos says technical overlaps, MITRE records Associated Groups, CISA lists an alias",
+          "type": "linguistic",
+          "source_id": "S7",
+          "reliability": "B",
+          "consistency": {
+            "A1": "0",
+            "A2": "C",
+            "A3": "C"
+          }
+        },
+        {
+          "id": "A-ii",
+          "statement": "CISA lists Voltzite among Volt Typhoon's aliases",
+          "type": "structural",
+          "source_id": "S1",
+          "reliability": "A",
+          "consistency": {
+            "A1": "C",
+            "A2": "0",
+            "A3": "0"
+          }
+        },
+        {
+          "id": "A-iii",
+          "statement": "Same sectors and the same living-off-the-land tradecraft",
+          "type": "tactics",
+          "source_id": "S10",
+          "reliability": "B",
+          "consistency": {
+            "A1": "C",
+            "A2": "C",
+            "A3": "C"
+          }
+        }
+      ],
+      "judgements": [
+        {
+          "hypothesis": "A1",
+          "key": "voltzite.identity",
+          "claim": "Dragos's VOLTZITE is the same actor as Volt Typhoon",
+          "confidence": "low",
+          "probability": "roughly_even",
+          "sources": [
+            "S1",
+            "S3",
+            "S7",
+            "S12"
+          ],
+          "triggers": [
+            {
+              "id": "RT-01",
+              "type": "documentary",
+              "condition": "A statement that asserts or denies identity",
+              "artifact": "Joint advisory or ATT&CK change"
+            }
+          ]
+        },
+        {
+          "hypothesis": "A2",
+          "key": "voltzite.related",
+          "claim": "The clusters are distinct but related",
+          "confidence": "low",
+          "probability": "roughly_even",
+          "sources": [
+            "S1",
+            "S3",
+            "S7",
+            "S12"
+          ],
+          "triggers": [
+            {
+              "id": "RT-02",
+              "type": "documentary",
+              "condition": "A vendor states the clusters are separate, or one",
+              "artifact": "Vendor report"
+            }
+          ]
+        },
+        {
+          "hypothesis": "A3",
+          "key": "voltzite.unrelated",
+          "claim": "The clusters are unrelated",
+          "confidence": "low",
+          "probability": "very_unlikely",
+          "sources": [
+            "S1",
+            "S10"
+          ],
+          "triggers": [
+            {
+              "id": "RT-03",
+              "type": "documentary",
+              "condition": "Shared infrastructure or code linking the designations",
+              "artifact": "Vendor research"
+            }
+          ]
         }
       ]
     },
     {
-      "hypothesis": "A2",
-      "key": "voltzite.related",
-      "claim": "The clusters are distinct but related",
-      "confidence": "low",
-      "probability": "roughly_even",
-      "sources": [
-        "S1",
-        "S3",
-        "S7",
-        "S12"
-      ],
-      "triggers": [
+      "id": "B",
+      "label": "Question B — mechanism",
+      "hypotheses": [
         {
-          "id": "RT-02",
-          "type": "documentary",
-          "condition": "A vendor states the clusters are separate, or one",
-          "artifact": "Vendor report"
-        }
-      ]
-    },
-    {
-      "hypothesis": "A3",
-      "key": "voltzite.unrelated",
-      "claim": "The clusters are unrelated",
-      "confidence": "low",
-      "probability": "very_unlikely",
-      "sources": [
-        "S1",
-        "S10"
-      ],
-      "triggers": [
+          "id": "B1",
+          "label": "brokered access"
+        },
         {
-          "id": "RT-03",
-          "type": "documentary",
-          "condition": "Shared infrastructure or code linking the designations",
-          "artifact": "Vendor research"
-        }
-      ]
-    }
-  ],
-  "claims": [
-    {
-      "id": "B1",
-      "key": "sylvanite.brokered",
-      "claim": "SYLVANITE hands established access to VOLTZITE",
-      "class": "observed",
-      "type": "factual",
-      "confidence": "moderate",
-      "probability": null,
-      "sources": [
+          "id": "B2",
+          "label": "direct access"
+        },
         {
-          "id": "S12",
-          "direct": true,
-          "reliability": "B"
+          "id": "B3",
+          "label": "shared tradecraft, no broker"
         }
       ],
-      "triggers": [
+      "evidence": [
         {
-          "id": "RT-04",
-          "type": "documentary",
-          "condition": "SYLVANITE serving a second consumer, or the handoff being denied",
-          "artifact": "Vendor report"
+          "id": "B-i",
+          "statement": "Dragos observed SYLVANITE weaponising edge-device vulnerabilities and handing established footholds to VOLTZITE, during incident response at U.S. electric and water utilities",
+          "type": "operator",
+          "source_id": "S12",
+          "reliability": "B",
+          "consistency": {
+            "B1": "C",
+            "B2": "I",
+            "B3": "0"
+          }
+        },
+        {
+          "id": "B-ii",
+          "statement": "SYLVANITE is tracked as a separate group with its own overlaps — UNC5221, UNC5174, UNC5291, UNC3236 and others",
+          "type": "structural",
+          "source_id": "S12",
+          "reliability": "B",
+          "consistency": {
+            "B1": "C",
+            "B2": "0",
+            "B3": "C"
+          }
+        },
+        {
+          "id": "B-iii",
+          "statement": "VOLTZITE has also exploited edge devices itself, e.g. Versa Director CVE-2024-39717",
+          "type": "infrastructure",
+          "source_id": "S9",
+          "reliability": "A",
+          "consistency": {
+            "B1": "0",
+            "B2": "C",
+            "B3": "C"
+          }
+        },
+        {
+          "id": "B-iv",
+          "statement": "No public evidence of a sale, a price or a market transaction",
+          "type": "open_source",
+          "source_id": "S12",
+          "reliability": "B",
+          "consistency": {
+            "B1": "0",
+            "B2": "0",
+            "B3": "0"
+          }
+        }
+      ],
+      "judgements": [
+        {
+          "hypothesis": "B1",
+          "key": "sylvanite.brokered",
+          "claim": "SYLVANITE establishes footholds and hands them to VOLTZITE",
+          "confidence": "moderate",
+          "probability": "likely",
+          "sources": [
+            "S12"
+          ],
+          "triggers": [
+            {
+              "id": "RT-04",
+              "type": "documentary",
+              "condition": "SYLVANITE serving a second consumer cluster, or the handoff being denied",
+              "artifact": "Vendor report or incident report"
+            }
+          ]
+        },
+        {
+          "hypothesis": "B2",
+          "key": "sylvanite.direct",
+          "claim": "VOLTZITE does its own initial access; the overlap is capability, not supply",
+          "confidence": "low",
+          "probability": "roughly_even",
+          "sources": [
+            "S9",
+            "S10"
+          ],
+          "triggers": [
+            {
+              "id": "RT-05",
+              "type": "documentary",
+              "condition": "Incident reporting that shows VOLTZITE establishing its own footholds in the same wave",
+              "artifact": "Vendor incident report"
+            }
+          ]
+        },
+        {
+          "hypothesis": "B3",
+          "key": "sylvanite.shared_tradecraft",
+          "claim": "Shared tradecraft without a standing handoff",
+          "confidence": "low",
+          "probability": "roughly_even",
+          "sources": [
+            "S12"
+          ],
+          "triggers": [
+            {
+              "id": "RT-06",
+              "type": "documentary",
+              "condition": "Evidence that the clusters buy the same commodity access rather than trade it",
+              "artifact": "Vendor infrastructure research"
+            }
+          ]
         }
       ]
     }

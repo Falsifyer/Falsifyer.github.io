@@ -4,6 +4,7 @@ title: "Is VOLTZITE the same actor as Volt Typhoon? Two questions, not three hyp
 date: 2026-10-09
 categories: threat-intelligence
 summary: "An analysis of competing hypotheses that splits one overloaded question into two — identity and mechanism — and grades the answer to each separately."
+description: "Two separate questions — is VOLTZITE Volt Typhoon, and is the overlap brokered access? — tested with ACH instead of one unfalsifiable hypothesis."
 kind: "Assessment"
 ---
 
@@ -11,7 +12,7 @@ kind: "Assessment"
 |---|---|
 | **Product** | Assessment (structured technique: ACH, two questions) |
 | **Handling** | TLP:CLEAR — open sources only |
-| **Version** | 2.0 (2026-10-28) |
+| **Version** | 2.1 (2026-10-29) |
 | **Review trigger** | A vendor or government statement that explicitly asserts or denies identity; published infrastructure or code reuse; detail on SYLVANITE tasking |
 | **Next review** | 2027-04-30 |
 | **Author** | Martín Eliseo |
@@ -76,13 +77,23 @@ Only one item discriminates, and it points both ways: the government lists the n
 vendors decline to. That is not enough to separate A1 from A2, and it is not enough to exclude A3 on
 open sources either.
 
-### Assessment ledger <!-- claims:begin -->
+### Assessment ledger<!-- claims:begin -->
+
+**Question A — identity**
 
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
 | Dragos's VOLTZITE is the same actor as Volt Typhoon | Low | roughly even chance | [1][3][7][12] |
 | The clusters are distinct but related | Low | roughly even chance | [1][3][7][12] |
 | The clusters are unrelated | Low | very unlikely | [1][10] |
+
+**Question B — mechanism**
+
+| Assessment | Confidence | Probability | Basis |
+|---|---|---|---|
+| SYLVANITE establishes footholds and hands them to VOLTZITE | Moderate | likely | [12] |
+| VOLTZITE does its own initial access; the overlap is capability, not supply | Low | roughly even chance | [9][10] |
+| Shared tradecraft without a standing handoff | Low | roughly even chance | [12] |
 
 <!-- claims:end -->
 
@@ -159,18 +170,18 @@ list; only the entries cited here are repeated. Entries 2, 4, 5, 6, 8 and 11 are
 are not cited in this product.
 
 1. CISA, NSA, FBI and international partners — **Joint Cybersecurity Advisory AA24-038A** (7 Feb 2024).
-   https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a
+   <https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a>
 3. MITRE ATT&CK — **Group G1017: Volt Typhoon** (v2.0, last modified 31 Jul 2026).
-   https://attack.mitre.org/groups/G1017
+   <https://attack.mitre.org/groups/G1017>
 7. Dragos — **OT/ICS Cybersecurity Report 2026: Year in Review** (17 Feb 2026).
-   https://www.dragos.com/resources/press-release/dragos-2026-year-in-review-new-ot-threats-ransomware
+   <https://www.dragos.com/resources/press-release/dragos-2026-year-in-review-new-ot-threats-ransomware>
 9. MITRE ATT&CK — **Campaign C0039: Versa Director Zero Day Exploitation** (June–August 2024).
-   https://attack.mitre.org/campaigns/C0039
+   <https://attack.mitre.org/campaigns/C0039>
 10. Palo Alto Networks Unit 42 — **Threat Brief: Attacks on Critical Infrastructure Attributed to
     Insidious Taurus (Volt Typhoon)** (Feb 2024).
-    https://unit42.paloaltonetworks.com/volt-typhoon-threat-brief/
+    <https://unit42.paloaltonetworks.com/volt-typhoon-threat-brief/>
 12. Dragos — **SYLVANITE** threat group page (accessed 28 Oct 2026).
-    https://www.dragos.com/threat/sylvanite/
+    <https://www.dragos.com/threat/sylvanite/>
 
 ---
 
@@ -185,3 +196,4 @@ are not cited in this product.
 | 1.2 | 2026-10-28 | Citation corrected: the SYLVANITE handoff (E7) is a Dragos observation, not an ATT&CK record. The matrix, the hypotheses and the judgement are unchanged. |
 | 1.3 | 2026-10-28 | Added a sensitivity paragraph: H1 rests on a prior near even and one weak observation repeated three times; one documentary event would move it across 50%. The matrix and the judgement are unchanged. |
 | 2.0 | 2026-10-28 | Split identity from mechanism; grouped the naming observation; gave A2 a refutation condition; moved A1 from `unlikely` to `roughly even` and A2 from `moderate` to `low`; registered the judgements so the ceiling is computed. The identity judgement changed. |
+| 2.1 | 2026-10-29 | Question B is now its own ACH block in the registry and appears in the ledger, with B1's probability aligned to the prose. The rendering was fixed so a product with two questions does not drop its second table. No assessed fact changed. |

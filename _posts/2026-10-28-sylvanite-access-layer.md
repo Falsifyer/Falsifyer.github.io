@@ -4,6 +4,7 @@ title: "The broker is the actor you can see: SYLVANITE and the alias problem at 
 date: 2026-10-28
 categories: threat-intelligence
 summary: "Dragos observed SYLVANITE handing footholds to VOLTZITE. What a defender should merge, and what must stay separate, when three vendors track one access layer as three different things."
+description: "The access layer as an actor: SYLVANITE, the alias problem, and what a broker looks like when the buyer is the story."
 kind: "Assessment"
 ---
 
@@ -98,7 +99,7 @@ No vendor asserts that. The record says "overlaps", which is a statement about s
 about shared organisation. This is the same error the [ACH](/ach-voltzite-volt-typhoon/) was written
 to avoid, one layer down.
 
-## Assessment ledger <!-- claims:begin -->
+## Assessment ledger<!-- claims:begin -->
 
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
@@ -176,16 +177,16 @@ covered by the appliance's own audit log, which is where the hypothesis starts a
 ## Sources
 
 1. Dragos — **SYLVANITE** threat group page (accessed 28 Oct 2026).
-   https://www.dragos.com/threat/sylvanite/
+   <https://www.dragos.com/threat/sylvanite/>
 2. Mandiant — **Bringing Access Back — Initial Access Brokers Exploit F5 BIG-IP (CVE-2023-46747) and
    ScreenConnect** (21 Mar 2024).
-   https://cloud.google.com/blog/topics/threat-intelligence/initial-access-brokers-exploit-f5-screenconnect
+   <https://cloud.google.com/blog/topics/threat-intelligence/initial-access-brokers-exploit-f5-screenconnect>
 3. MITRE ATT&CK — **Campaign C0029: Cutting Edge** (last modified 31 Jul 2026).
-   https://attack.mitre.org/campaigns/C0029
+   <https://attack.mitre.org/campaigns/C0029>
 4. MITRE ATT&CK — **Group G1017: Volt Typhoon** (v2.0, last modified 31 Jul 2026).
-   https://attack.mitre.org/groups/G1017
+   <https://attack.mitre.org/groups/G1017>
 5. CISA, NSA, FBI and international partners — **Joint Cybersecurity Advisory AA24-038A** (7 Feb 2024).
-   https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a
+   <https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a>
 
 ---
 

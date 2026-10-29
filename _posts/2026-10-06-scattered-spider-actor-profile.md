@@ -4,6 +4,7 @@ title: "Scattered Spider: an actor profile built from open sources"
 date: 2026-10-06
 categories: threat-intelligence
 summary: "An actor profile assembled from open reporting, with the vendor divergences left visible instead of flattened into a single confident story."
+description: "A graded actor profile: identity-first intrusion, RMM abuse, hypervisor operations and ransomware, with the vendor divergences left visible."
 kind: "Actor profile"
 ---
 
@@ -68,7 +69,7 @@ analysis notes that the shared 0ktapus phishing kit was reused by multiple actor
 assessments go as far as treating Muddled Libra as a distinct cluster despite overlapping tradecraft.
 Read the aliases as an **overlapping cluster, not a verified single identity** [2][9].
 
-## 2. Assessment ledger <!-- claims:begin -->
+## 2. Assessment ledger<!-- claims:begin -->
 
 | Assessment | Confidence | Probability | Basis |
 |---|---|---|---|
@@ -186,19 +187,19 @@ The confidence above is a snapshot; these events would move it:
 1. CISA, FBI, RCMP, ASD/ACSC, AFP, CCCS, NCSC-UK — **Cybersecurity Advisory AA23-320A: Scattered
    Spider** (last revised 29 Jul 2025). https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-320a
 2. MITRE ATT&CK — **Group G1015: Scattered Spider** (v3.0, last modified 31 Jul 2026).
-   https://attack.mitre.org/groups/G1015
+   <https://attack.mitre.org/groups/G1015>
 3. Google Threat Intelligence Group — **Defending vSphere from UNC3944** (summarised by Infosecurity
    Magazine, 28 Jul 2025). https://cloud.google.com/blog/topics/threat-intelligence/defending-vsphere-from-unc3944
 4. Google/GTIG via Computer Weekly — *Scattered Spider retail attacks spreading to US* (14 May 2025).
-   https://www.computerweekly.com/news/366623999/Scattered-Spider-retail-attacks-spreading-to-US-says-Google
+   <https://www.computerweekly.com/news/366623999/Scattered-Spider-retail-attacks-spreading-to-US-says-Google>
 5. Infosecurity Magazine — *Cybercriminals 'Spooked' After Scattered Spider Arrests* (31 Jul 2025).
-   https://www.infosecurity-magazine.com/news/cybercriminals-spooked-scattered
+   <https://www.infosecurity-magazine.com/news/cybercriminals-spooked-scattered>
 6. BleepingComputer — *ShinyHunters launches Salesforce data leak site to extort 39 victims* (3 Oct
    2025). https://www.bleepingcomputer.com/news/security/shinyhunters-starts-leaking-data-stolen-in-salesforce-attacks
 7. SC Media — *New Scattered Lapsus$ Hunters escalates Salesforce extortion* (6 Oct 2025).
-   https://www.scworld.com/brief/new-scattered-lapsus-hunters-escalates-salesforce-extortion
+   <https://www.scworld.com/brief/new-scattered-lapsus-hunters-escalates-salesforce-extortion>
 8. Computer Weekly — *ShinyHunters Salesforce cyber attacks explained* (11 Aug 2025).
-   https://www.computerweekly.com/feature/ShinyHunters-Salesforce-cyber-attacks-explained-What-you-need-to-know
+   <https://www.computerweekly.com/feature/ShinyHunters-Salesforce-cyber-attacks-explained-What-you-need-to-know>
 9. Vendor tracking names and the non-equivalence caveat, as reported in public actor-profile
    aggregations (secondary source; treated as low confidence).
 

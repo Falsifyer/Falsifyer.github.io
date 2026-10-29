@@ -42,9 +42,19 @@ def _refs(document: dict, ids: list[str]) -> str:
 
 
 def table(document: dict) -> str:
+    if document.get("questions"):
+        return "\n\n".join(
+            f"**{question.get('label') or question.get('id') or 'Question'}**\n\n"
+            f"{_table(question, document)}"
+            for question in document["questions"]
+        )
+    return _table(document, document)
+
+
+def _table(block: dict, document: dict) -> str:
     lines = ["| Assessment | Confidence | Probability | Basis |", "|---|---|---|---|"]
-    if document.get("hypotheses"):
-        for judge in document.get("judgements") or []:
+    if block.get("hypotheses"):
+        for judge in block.get("judgements") or []:
             basis = _refs(document, [str(item) for item in judge.get("sources") or []])
             note = f" · {judge['note']}" if judge.get("note") else ""
             lines.append(
@@ -52,7 +62,7 @@ def table(document: dict) -> str:
                 f"| {PROBABILITY.get(judge.get('probability'), judge.get('probability'))} | {basis}{note} |"
             )
     else:
-        for claim in document.get("claims") or []:
+        for claim in block.get("claims") or []:
             basis = _refs(document, [str(item.get("id")) for item in claim.get("sources") or []])
             note = f" · {claim['note']}" if claim.get("note") else ""
             lines.append(

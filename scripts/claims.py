@@ -12,6 +12,8 @@ Two shapes, one file:
   (``claims[]``). Independence is structural, through ``derived_from``.
 * **ach** — competing hypotheses with typed evidence and a consistency cell per hypothesis
   (``hypotheses[]`` + ``evidence[]`` + ``judgements[]``). The ceiling is per hypothesis.
+  A dossier may carry several independent questions under ``questions[]``; each is graded
+  against its own hypotheses, so one question cannot inflate another's ceiling.
 
 A file may carry both arrays. The class is metadata for the reader: the ceiling uses
 ``direct`` and the evidence type, and an author who marks an inference as direct is making
@@ -175,7 +177,19 @@ def check(
     sources, source_findings = _sources(document)
     blocking += source_findings
 
-    if document.get("hypotheses"):
+    questions = document.get("questions") or []
+    if questions:
+        for index, question in enumerate(questions, start=1):
+            label = str(question.get("id") or f"question-{index}")
+            if not question.get("id"):
+                blocking.append(f"question {index}: no id")
+            if not str(question.get("label") or "").strip():
+                advisory.append(f"{label}: no label")
+            found, notes, keys = _ach(question, sources, today)
+            blocking += found
+            advisory += notes
+            claims.update(keys)
+    elif document.get("hypotheses"):
         found, notes, keys = _ach(document, sources, today)
         blocking += found
         advisory += notes
@@ -185,8 +199,8 @@ def check(
         blocking += found
         advisory += notes
         claims.update(keys)
-    if not document.get("hypotheses") and not document.get("claims"):
-        blocking.append("registry carries neither hypotheses nor claims")
+    if not questions and not document.get("hypotheses") and not document.get("claims"):
+        blocking.append("registry carries neither questions, hypotheses nor claims")
 
     return blocking, advisory, claims
 
