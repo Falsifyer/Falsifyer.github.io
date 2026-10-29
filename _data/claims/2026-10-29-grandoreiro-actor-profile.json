@@ -1,0 +1,360 @@
+{
+  "schema_version": "1.0",
+  "product": "2026-10-29-grandoreiro-actor-profile",
+  "mode": "claim",
+  "sources": [
+    {
+      "id": "S1",
+      "publisher": "INTERPOL",
+      "derived_from": [],
+      "ref": "1"
+    },
+    {
+      "id": "S2",
+      "publisher": "ESET",
+      "derived_from": [],
+      "ref": "2"
+    },
+    {
+      "id": "S3",
+      "publisher": "Kaspersky",
+      "derived_from": [],
+      "ref": "3"
+    },
+    {
+      "id": "S4",
+      "publisher": "IBM X-Force",
+      "derived_from": [],
+      "ref": "4"
+    },
+    {
+      "id": "S5",
+      "publisher": "IBM X-Force",
+      "derived_from": [],
+      "ref": "5"
+    },
+    {
+      "id": "S6",
+      "publisher": "Acronis",
+      "derived_from": [],
+      "ref": "6"
+    },
+    {
+      "id": "S7",
+      "publisher": "MITRE ATT&CK",
+      "derived_from": [
+        "S2",
+        "S3"
+      ],
+      "ref": "7"
+    }
+  ],
+  "claims": [
+    {
+      "id": "GR-01",
+      "key": "grandoreiro.origin",
+      "claim": "A Delphi banking trojan of Brazilian origin, part of the Tetrade family",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "high",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S3",
+          "direct": true
+        },
+        {
+          "id": "S6",
+          "direct": true
+        },
+        {
+          "id": "S7",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-01",
+          "type": "documentary",
+          "condition": "A vendor reclassifies the codebase outside the Tetrade family or its Brazilian origin",
+          "artifact": "Vendor malware analysis"
+        }
+      ]
+    },
+    {
+      "id": "GR-02",
+      "key": "grandoreiro.first_seen",
+      "claim": "Active since at least 2016, and tracked against Spanish-speaking victims since 2017",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "high",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S3",
+          "direct": true
+        },
+        {
+          "id": "S1",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-02",
+          "type": "documentary",
+          "condition": "A sample predating 2016, or a vendor revising the first-seen date",
+          "artifact": "Vendor research or sample metadata"
+        }
+      ]
+    },
+    {
+      "id": "GR-03",
+      "key": "grandoreiro.maas",
+      "claim": "Operated as a service, with access to the source and builders limited to trusted partners",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S3",
+          "direct": true
+        },
+        {
+          "id": "S4",
+          "direct": true
+        }
+      ]
+    },
+    {
+      "id": "GR-04",
+      "key": "grandoreiro.distributors",
+      "claim": "IBM tracks at least three distributors: Hive0148, Hive0149 and a third in development",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S5",
+          "direct": true
+        }
+      ]
+    },
+    {
+      "id": "GR-05",
+      "key": "grandoreiro.split",
+      "claim": "After the 2024 arrests the codebase split: a lighter variant focused on Mexico runs alongside the main one",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S3",
+          "direct": true
+        },
+        {
+          "id": "S6",
+          "direct": true
+        }
+      ]
+    },
+    {
+      "id": "GR-06",
+      "key": "grandoreiro.targets",
+      "claim": "Targets more than 1,500 banking applications; the country count differs by vendor (45 in Kaspersky, 60+ in IBM)",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "high",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S3",
+          "direct": true
+        },
+        {
+          "id": "S4",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-03",
+          "type": "technical",
+          "condition": "A vendor publishes a new target or country count",
+          "artifact": "Vendor research with a dated sample set",
+          "expires": "2027-04-30"
+        }
+      ]
+    },
+    {
+      "id": "GR-07",
+      "key": "grandoreiro.arrests",
+      "claim": "In January 2024, five programmers and operators were arrested in Brazil, in an operation coordinated by INTERPOL with Spain",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        },
+        {
+          "id": "S2",
+          "direct": true
+        }
+      ]
+    },
+    {
+      "id": "GR-08",
+      "key": "grandoreiro.continued",
+      "claim": "Operations continued after the arrests: campaigns in 2024, 2025 and 2026 are documented by three independent vendors",
+      "class": "observed",
+      "type": "factual",
+      "confidence": "high",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S3",
+          "direct": true
+        },
+        {
+          "id": "S5",
+          "direct": true
+        },
+        {
+          "id": "S6",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-04",
+          "type": "behavioural",
+          "condition": "A sustained pause longer than two quarters, or a conviction",
+          "artifact": "Vendor telemetry or a law-enforcement statement",
+          "expires": "2027-04-30"
+        }
+      ]
+    },
+    {
+      "id": "GR-09",
+      "key": "grandoreiro.sideloading_2026",
+      "claim": "The 2026 campaign used a DLL sideloading chain through Duplicate Files Finder, concentrated in Mexico",
+      "class": "observed",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S6",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-08",
+          "type": "technical",
+          "condition": "The loader chain changes, or the campaign moves to a new country",
+          "artifact": "Vendor campaign analysis with samples",
+          "expires": "2027-01-31"
+        }
+      ]
+    },
+    {
+      "id": "GR-10",
+      "key": "grandoreiro.spain_losses",
+      "claim": "At least EUR 3.5 million stolen in Spain, with more than EUR 110 million attempted per CaixaBank",
+      "class": "documented",
+      "type": "factual",
+      "confidence": "moderate",
+      "probability": null,
+      "sources": [
+        {
+          "id": "S1",
+          "direct": true
+        }
+      ]
+    },
+    {
+      "id": "GR-11",
+      "key": "grandoreiro.model_distributors",
+      "claim": "Grandoreiro is run by several distributors sharing a codebase, not one organisation",
+      "class": "assessed",
+      "type": "estimative",
+      "confidence": "moderate",
+      "probability": "roughly_even",
+      "sources": [
+        {
+          "id": "S5",
+          "direct": true
+        },
+        {
+          "id": "S3",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-05",
+          "type": "documentary",
+          "condition": "A vendor links two distributor clusters by shared infrastructure or code, or merges them",
+          "artifact": "Vendor infrastructure research"
+        }
+      ]
+    },
+    {
+      "id": "GR-12",
+      "key": "grandoreiro.model_single",
+      "claim": "Grandoreiro is run by one group or a few closely cooperating groups",
+      "class": "assessed",
+      "type": "estimative",
+      "confidence": "moderate",
+      "probability": "roughly_even",
+      "sources": [
+        {
+          "id": "S2",
+          "direct": true
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-06",
+          "type": "documentary",
+          "condition": "A vendor demonstrates independent, non-cooperating distributors",
+          "artifact": "Vendor infrastructure research"
+        }
+      ]
+    },
+    {
+      "id": "GR-13",
+      "key": "grandoreiro.label_only",
+      "claim": "Grandoreiro is a vendor label applied to unrelated malware",
+      "class": "assessed",
+      "type": "estimative",
+      "confidence": "low",
+      "probability": "very_unlikely",
+      "sources": [
+        {
+          "id": "S3",
+          "direct": false
+        },
+        {
+          "id": "S6",
+          "direct": false
+        }
+      ],
+      "triggers": [
+        {
+          "id": "RT-07",
+          "type": "documentary",
+          "condition": "A vendor finds no shared code between variants carrying the label",
+          "artifact": "Comparative malware analysis"
+        }
+      ]
+    }
+  ]
+}
